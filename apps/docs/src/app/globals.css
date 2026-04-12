@@ -59,11 +59,11 @@
   --chrome-gap: clamp(3.5rem, 7vw, 6rem);
 
   /* Section spacing defines vertical rhythm between major page beats. */
-  --space-section-sm: clamp(2.75rem, 4vw, 3.5rem);
-  --space-section-md: clamp(3.25rem, 6vw, 4.75rem);
-  --space-section-lg: clamp(4.75rem, 9vw, 7rem);
-  --space-section-xl: clamp(6rem, 11vw, 8.75rem);
-  --space-section-hero: clamp(2.75rem, 6vw, 4.75rem);
+  --space-section-sm: clamp(3.25rem, 5vw, 4.25rem);
+  --space-section-md: clamp(4.25rem, 7vw, 5.75rem);
+  --space-section-lg: clamp(5.75rem, 10vw, 8.25rem);
+  --space-section-xl: clamp(7.5rem, 13vw, 10.5rem);
+  --space-section-hero: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 @theme inline {
