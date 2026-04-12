@@ -7,6 +7,16 @@ import type {
   RangeModel
 } from "../types/manifest";
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+function readResourceId(value: unknown): string | undefined {
+  if (typeof value === "string" && value) return value;
+  if (!isRecord(value) || typeof value.id !== "string" || !value.id) return undefined;
+  return value.id;
+}
+
 function readIntlString(value: unknown): string {
   if (!value || typeof value !== "object") return "";
   const entries = Object.values(value as Record<string, unknown>);
@@ -70,14 +80,17 @@ function parseAnnotations(canvas: Record<string, unknown>): AnnotationModel[] {
     const pageObj = page as Record<string, unknown>;
     const items = Array.isArray(pageObj.items) ? pageObj.items : [];
     return items.flatMap((item) => {
-      const anno = item as Record<string, unknown>;
-      if (typeof anno.id !== "string" || typeof anno.target !== "string") return [];
+      if (!isRecord(item)) return [];
+
+      const id = readResourceId(item.id);
+      const target = readResourceId(item.target);
+      if (!id || !target) return [];
 
       return [
         {
-          id: anno.id,
-          target: anno.target,
-          ...(anno.body !== undefined ? { body: anno.body } : {})
+          id,
+          target,
+          ...(item.body !== undefined ? { body: item.body } : {})
         } satisfies AnnotationModel
       ];
     });
