@@ -43,11 +43,11 @@
 
   --space-1: 0.4rem;
   --space-2: 0.75rem;
-  --space-3: 1rem;
-  --space-4: 1.5rem;
-  --space-5: 2rem;
-  --space-6: 3rem;
-  --space-7: 4.5rem;
+  --space-3: 1.125rem;
+  --space-4: 1.75rem;
+  --space-5: 2.5rem;
+  --space-6: 3.5rem;
+  --space-7: 5rem;
 
   /* Layout widths keep copy centered and prevent dense docs pages. */
   --container-narrow: 28rem;
@@ -57,11 +57,11 @@
   --page-gutter: 1.5rem;
 
   /* Section spacing defines vertical rhythm between major page beats. */
-  --space-section-sm: var(--space-5);
-  --space-section-md: clamp(2.5rem, 5vw, 4rem);
-  --space-section-lg: clamp(4rem, 8vw, 6rem);
-  --space-section-xl: clamp(5rem, 10vw, 8rem);
-  --space-section-hero: clamp(2rem, 5vw, 4rem);
+  --space-section-sm: clamp(2.75rem, 4vw, 3.5rem);
+  --space-section-md: clamp(3.25rem, 6vw, 4.75rem);
+  --space-section-lg: clamp(4.75rem, 9vw, 7rem);
+  --space-section-xl: clamp(6rem, 11vw, 8.75rem);
+  --space-section-hero: clamp(2.75rem, 6vw, 4.75rem);
 }
 
 @theme inline {
@@ -195,22 +195,22 @@ pre {
 .docs-page {
   width: min(var(--container-page), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto;
-  padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(4rem, 8vw, 6rem);
+  padding: clamp(3rem, 5vw, 4.75rem) 0 clamp(5rem, 9vw, 7rem);
 }
 
 .docs-section {
-  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(3rem, 6vw, 4.75rem);
 }
 
 .docs-rule {
-  padding-top: clamp(1.25rem, 2vw, 1.75rem);
+  padding-top: clamp(1.5rem, 2.5vw, 2rem);
   border-top: 1px solid var(--line-subtle);
 }
 
 .docs-panel {
   border: 1px solid var(--line-subtle);
   background: var(--surface-raised);
-  padding: clamp(1.1rem, 2vw, 1.6rem);
+  padding: clamp(1.35rem, 2.5vw, 2rem);
 }
 
 .reading-width-tight {
@@ -341,7 +341,7 @@ pre {
 .cluster {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 1.5rem;
+  gap: 1.25rem 1.75rem;
   align-items: baseline;
 }
 
@@ -358,7 +358,7 @@ pre {
 
 .code-block {
   overflow-x: auto;
-  padding: 1rem 1.1rem;
+  padding: 1.15rem 1.25rem;
   border: 1px solid var(--line-subtle);
   background: var(--code-block-bg);
   font-size: 0.92rem;
@@ -374,6 +374,6 @@ pre {
   }
 
   .docs-page {
-    padding-top: 2rem;
+    padding-top: 2.5rem;
   }
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
+import { Navbar } from "@/components/navigation/Navbar";
+
 import "./globals.css";
 
 const displayFont = Cormorant_Garamond({
@@ -37,7 +39,10 @@ export default function RootLayout({
       lang="en"
       className={`${displayFont.variable} ${sansFont.variable} ${monoFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

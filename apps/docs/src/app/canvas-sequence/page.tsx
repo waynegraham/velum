@@ -29,7 +29,7 @@ export default function CanvasSequenceDocsPage() {
   return (
     <main className={styles.page}>
       <TransitionSection as="header" className={styles.header} space="hero" tone="surface">
-        <MotionBlock reveal={{ distance: 16, duration: 0.46, start: "top 92%" }}>
+        <MotionBlock reveal={{ distance: 16, duration: 0.58, start: "top 90%" }}>
           <div className={styles.headerGrid}>
             <div className="stack-3">
               <p className="type-label">@velum/react</p>
@@ -59,7 +59,7 @@ export default function CanvasSequenceDocsPage() {
         space="md"
         tone="lift"
       >
-        <MotionBlock reveal={{ distance: 18, duration: 0.48, start: "top 90%" }}>
+        <MotionBlock reveal={{ distance: 18, duration: 0.6, start: "top 88%" }}>
           <div className={styles.demoIntro}>
             <div className="stack-2">
               <p className="type-label">Live rendering</p>
@@ -74,7 +74,7 @@ export default function CanvasSequenceDocsPage() {
 
         <MotionBlock
           className={styles.demoFrame}
-          reveal={{ distance: 18, duration: 0.5, start: "top 86%" }}
+          reveal={{ distance: 18, duration: 0.62, start: "top 84%" }}
         >
           <div className={styles.demoChrome}>
             <div>
@@ -116,7 +116,7 @@ export default function CanvasSequenceDocsPage() {
         space="md"
         tone="surface"
       >
-        <MotionBlock reveal={{ distance: 16, duration: 0.44 }}>
+        <MotionBlock reveal={{ distance: 16, duration: 0.54 }}>
           <div className={styles.supportGrid}>
             <article className={`docs-panel ${styles.supportCard}`}>
               <div className="stack-3">

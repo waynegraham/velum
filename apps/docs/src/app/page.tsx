@@ -47,8 +47,8 @@ export default function HomePage() {
       <main className={styles.page}>
         <Section className={styles.hero} space="hero">
           <MotionBlock
-            className={styles.heroCopy}
-            reveal={{ distance: 20, duration: 0.48, start: "top 90%" }}
+            className={styles.heroIntro}
+            reveal={{ distance: 20, duration: 0.6, start: "top 88%" }}
           >
             <p className={styles.eyebrow}>Velum documentation</p>
             <h1 className={styles.heroTitle}>
@@ -56,34 +56,9 @@ export default function HomePage() {
             </h1>
             <p className={styles.heroText}>
               Build reading sequences, scroll narratives, and image-led interfaces
-              from normalized manifests. The page opens with a work, then lets the
-              documentation recede.
+              from normalized manifests. The work establishes the pace first, then the
+              documentation arrives in quieter notes around it.
             </p>
-
-            <dl className={styles.heroDetails}>
-              <div>
-                <dt>Collection</dt>
-                <dd>Harvard Art Museums</dd>
-              </div>
-              {maker ? (
-                <div>
-                  <dt>Maker</dt>
-                  <dd>{maker}</dd>
-                </div>
-              ) : null}
-              {period ? (
-                <div>
-                  <dt>Period</dt>
-                  <dd>{period}</dd>
-                </div>
-              ) : null}
-              {medium ? (
-                <div>
-                  <dt>Medium</dt>
-                  <dd>{medium}</dd>
-                </div>
-              ) : null}
-            </dl>
           </MotionBlock>
 
           <MotionBlock className={styles.heroMedia} parallax={{ distance: 10 }}>
@@ -91,7 +66,7 @@ export default function HomePage() {
               <MotionBlock
                 as="figure"
                 className={styles.heroFigure}
-                reveal={{ delay: 0.08, distance: 16, duration: 0.52, start: "top 92%" }}
+                reveal={{ delay: 0.12, distance: 16, duration: 0.64, start: "top 90%" }}
               >
                 <img
                   className={styles.heroImage}
@@ -99,8 +74,15 @@ export default function HomePage() {
                   alt={heroCanvas?.label ?? manifest?.label ?? "IIIF artwork"}
                 />
                 <figcaption className={styles.caption}>
-                  <span>{manifest?.label}</span>
-                  <span>{heroCanvas?.label ?? "Opening canvas"}</span>
+                  <span className={styles.captionPrimary}>
+                    {heroCanvas?.label ?? "Opening canvas"}
+                  </span>
+                  <span>
+                    {maker ?? "Unknown maker"}
+                    {period ? `, ${period}` : ""}
+                  </span>
+                  {medium ? <span>{medium}</span> : null}
+                  <span>Harvard Art Museums IIIF manifest</span>
                 </figcaption>
               </MotionBlock>
             ) : (
@@ -109,25 +91,32 @@ export default function HomePage() {
               </div>
             )}
           </MotionBlock>
+
+          <MotionBlock
+            className={styles.heroAside}
+            reveal={{ delay: 0.08, distance: 16, duration: 0.58, start: "top 90%" }}
+          >
+            <p className={styles.asideLabel}>Viewing notes</p>
+            <p className={styles.asideText}>
+              Collection: Harvard Art Museums
+              {maker ? ` - Maker: ${maker}` : ""}
+              {period ? ` - Period: ${period}` : ""}
+            </p>
+          </MotionBlock>
         </Section>
 
         <TransitionSection
           className={styles.intro}
-          marker="Preface"
+          marker="Opening note"
           space="xl"
-          tone="surface"
+          tone="base"
         >
           <MotionBlock
             className={styles.copyBlock}
-            reveal={{ distance: 18, duration: 0.46 }}
+            reveal={{ distance: 18, duration: 0.56 }}
           >
             <p className={styles.kicker}>Editorial introduction</p>
             <p className={styles.introText}>{summary}</p>
-          </MotionBlock>
-          <MotionBlock
-            className={styles.copyBlock}
-            reveal={{ delay: 0.06, distance: 16, duration: 0.46 }}
-          >
             <p className={styles.bodyText}>
               The core stays domain-first. React components render normalized
               canvases. Motion remains optional. What matters here is pace: enough
@@ -143,40 +132,33 @@ export default function HomePage() {
 
         <TransitionSection
           className={styles.featureSection}
-          marker="Featured demo"
+          marker="Featured work"
           space="xl"
-          tone="lift"
+          tone="surface"
         >
-          <div className={styles.featureHeader}>
-            <MotionBlock
-              className={styles.copyBlock}
-              reveal={{ distance: 18, duration: 0.46 }}
-            >
-              <p className={styles.kicker}>Featured component</p>
-              <h2 className={styles.sectionTitle}>CanvasSequence</h2>
-            </MotionBlock>
-            <MotionBlock
-              className={styles.copyBlock}
-              reveal={{ delay: 0.06, distance: 16, duration: 0.46 }}
-            >
-              <p className={styles.bodyText}>
-                A restrained starting point for manifests that already carry their
-                own rhythm. It renders canvases as a legible visual sequence without
-                imposing a gallery shell around them.
-              </p>
-              <p className={styles.inlineLinks}>
-                <Link href="/canvas-sequence">Read the component notes</Link>
-                <Link href="/scroll-story">Open the scroll story page</Link>
-                <a href={manifestUrl} target="_blank" rel="noreferrer">
-                  Open the source manifest
-                </a>
-              </p>
-            </MotionBlock>
-          </div>
+          <MotionBlock
+            className={styles.featureLead}
+            reveal={{ distance: 18, duration: 0.56 }}
+          >
+            <p className={styles.kicker}>Featured component</p>
+            <h2 className={styles.sectionTitle}>CanvasSequence</h2>
+            <p className={styles.bodyText}>
+              A restrained starting point for manifests that already carry their own
+              rhythm. It renders canvases as a legible visual sequence without
+              imposing a gallery shell around them.
+            </p>
+            <p className={styles.inlineLinks}>
+              <Link href="/canvas-sequence">Read the component notes</Link>
+              <Link href="/scroll-story">Open the scroll story page</Link>
+              <a href={manifestUrl} target="_blank" rel="noreferrer">
+                Open the source manifest
+              </a>
+            </p>
+          </MotionBlock>
 
           <MotionBlock
             className={styles.demoFrame}
-            reveal={{ distance: 18, duration: 0.5, start: "top 86%" }}
+            reveal={{ distance: 18, duration: 0.62, start: "top 84%" }}
           >
             {error ? (
               <p className={styles.statusMessage}>
@@ -198,19 +180,14 @@ export default function HomePage() {
           className={styles.notesSection}
           marker="Approach"
           space="xl"
-          tone="surface"
+          tone="base"
         >
           <MotionBlock
             className={styles.copyBlock}
-            reveal={{ distance: 18, duration: 0.46 }}
+            reveal={{ distance: 18, duration: 0.56 }}
           >
             <p className={styles.kicker}>What this page is doing</p>
             <h2 className={styles.sectionTitle}>Deliberate transitions, minimal chrome.</h2>
-          </MotionBlock>
-          <MotionBlock
-            className={styles.notesGrid}
-            reveal={{ delay: 0.04, distance: 16, duration: 0.46 }}
-          >
             <p className={styles.bodyText}>
               The oversized image establishes scale before explanation. Thin rules,
               captions, and measured type shifts replace cards, badges, and control

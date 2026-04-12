@@ -6,10 +6,10 @@
   --story-progress: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.9fr);
-  gap: clamp(2rem, 5vw, 5rem);
+  gap: clamp(2.75rem, 6vw, 6rem);
   align-items: start;
   min-height: 100svh;
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  padding: clamp(2.75rem, 6vw, 4.5rem) 0;
   border-top: 1px solid var(--line-subtle);
 }
 
@@ -32,8 +32,8 @@
   );
   opacity: calc(0.72 + (var(--story-progress) * 0.28));
   transition:
-    opacity 320ms ease,
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 420ms ease,
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .section :global(img) {
@@ -46,21 +46,21 @@
 
 .section :global(figcaption) {
   max-width: 24rem;
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
   color: var(--text-muted);
 }
 
 .panel {
   position: sticky;
-  top: clamp(1rem, 3vw, 2rem);
+  top: clamp(1.5rem, 4vw, 2.75rem);
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-3);
   align-self: center;
   transform: translate3d(0, calc((1 - var(--story-progress)) * 1rem), 0);
   opacity: calc(0.58 + (var(--story-progress) * 0.42));
   transition:
-    opacity 320ms ease,
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 420ms ease,
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .kicker {
@@ -82,8 +82,8 @@
 
 .meta {
   display: grid;
-  gap: 0.8rem;
-  padding-top: var(--space-2);
+  gap: 1rem;
+  padding-top: var(--space-3);
   border-top: 1px solid color-mix(in srgb, var(--line-subtle) 75%, transparent 25%);
 }
 
@@ -110,7 +110,7 @@
   .section {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-block: clamp(1.5rem, 5vw, 2.5rem);
+    padding-block: clamp(2rem, 6vw, 3.25rem);
   }
 
   .panel {
