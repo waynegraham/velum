@@ -1,32 +1,43 @@
-"use client";
-
+import type { CSSProperties } from "react";
 import type { CanvasModel } from "@velum/core";
+import { CanvasImage } from "./CanvasImage";
 
 export interface CanvasSequenceProps {
   canvases: CanvasModel[];
+  variant?: "stack" | "spaced" | "full-bleed";
+  showCaptions?: boolean;
+  className?: string;
+  style?: CSSProperties;
 }
 
-export function CanvasSequence({ canvases }: CanvasSequenceProps) {
-  return (
-    <div style={{ display: "grid", gap: "2rem" }}>
-      {canvases.map((canvas) => {
-        const image = canvas.items[0];
+const VARIANTS = {
+  stack: { gap: "1.5rem" },
+  spaced: { gap: "6rem" },
+  "full-bleed": { gap: "0" }
+};
 
-        return (
-          <figure key={canvas.id} style={{ margin: 0 }}>
-            {image ? (
-              <img
-                src={image.id}
-                alt={canvas.label ?? ""}
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
-            ) : null}
-            {canvas.label ? (
-              <figcaption style={{ marginTop: "0.75rem" }}>{canvas.label}</figcaption>
-            ) : null}
-          </figure>
-        );
-      })}
+export function CanvasSequence({
+  canvases,
+  variant = "stack",
+  showCaptions = true,
+  className,
+  style
+}: CanvasSequenceProps) {
+  const containerStyle: CSSProperties = {
+    display: "grid",
+    gap: VARIANTS[variant].gap,
+    ...style
+  };
+
+  return (
+    <div className={className} style={containerStyle}>
+      {canvases.map((canvas) => (
+        <CanvasImage
+          key={canvas.id}
+          canvas={canvas}
+          caption={showCaptions ? undefined : null}
+        />
+      ))}
     </div>
   );
 }
