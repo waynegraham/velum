@@ -1,5 +1,5 @@
 .sequence {
-  --sequence-measure: min(100%, 58rem);
+  --sequence-measure: min(100%, 64rem);
 }
 
 .group {
@@ -9,12 +9,12 @@
 .figure {
   width: min(var(--sequence-measure), 100%);
   margin: 0 auto;
-  padding-block: clamp(4rem, 10vw, 7rem) clamp(6rem, 13vw, 10rem);
-  opacity: 0.3;
+  padding-block: clamp(5rem, 12vw, 8.5rem) clamp(7rem, 15vw, 11.5rem);
+  opacity: 0.34;
   transform: translate3d(0, 1rem, 0);
   transition:
-    opacity 880ms ease,
-    transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 880ms var(--ease-gentle),
+    transform 1200ms var(--ease-soft);
 }
 
 .figure[data-state="active"],
@@ -24,30 +24,30 @@
 }
 
 .group:nth-child(3n + 1) .figure {
-  width: min(100%, 52rem);
+  width: min(100%, 58rem);
 }
 
 .group:nth-child(3n + 2) .figure {
-  width: min(100%, 44rem);
+  width: min(100%, 48rem);
 }
 
 .group:nth-child(3n) .figure {
-  width: min(100%, 48rem);
+  width: min(100%, 54rem);
 }
 
 .image {
   width: 100%;
-  max-height: min(84svh, 62rem);
+  max-height: min(86svh, 68rem);
   object-fit: contain;
   margin-inline: auto;
 }
 
 .caption {
-  max-width: 18rem;
-  margin-top: clamp(1rem, 2vw, 1.4rem);
-  color: color-mix(in srgb, var(--foreground) 54%, var(--background) 46%);
-  font-size: 0.74rem;
-  line-height: 1.55;
+  max-width: 20rem;
+  margin-top: clamp(1.15rem, 2.2vw, 1.8rem);
+  color: color-mix(in srgb, var(--foreground) 46%, var(--background) 54%);
+  font-size: 0.72rem;
+  line-height: 1.6;
   text-align: center;
   margin-inline: auto;
 }
@@ -55,7 +55,7 @@
 .interlude {
   width: min(100%, 24rem);
   margin: 0 auto;
-  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
   color: color-mix(in srgb, var(--foreground) 66%, var(--background) 34%);
   font-family: var(--font-display-family), serif;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
@@ -64,8 +64,8 @@
   opacity: 0.28;
   transform: translate3d(0, 0.75rem, 0);
   transition:
-    opacity 880ms ease,
-    transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 880ms var(--ease-gentle),
+    transform 1200ms var(--ease-soft);
   text-wrap: balance;
 }
 
@@ -76,12 +76,12 @@
 
   .figure {
     width: 100%;
-    padding-block: clamp(2.5rem, 8vw, 4rem) clamp(4rem, 11vw, 6rem);
+    padding-block: clamp(3.5rem, 10vw, 5rem) clamp(4.75rem, 13vw, 7rem);
   }
 
   .interlude {
     width: min(100%, 20rem);
-    padding-bottom: clamp(1rem, 4vw, 2rem);
+    padding-bottom: clamp(1.5rem, 5vw, 2.75rem);
   }
 }
 
