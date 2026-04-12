@@ -1,9 +1,16 @@
 "use client";
 
 import { ReactLenis } from "lenis/react";
-import "lenis/dist/lenis.css";
+import type { LenisOptions } from "lenis";
 import type { PropsWithChildren } from "react";
 
-export function LenisProvider({ children }: PropsWithChildren) {
-  return <ReactLenis root>{children}</ReactLenis>;
+export interface LenisProviderProps extends PropsWithChildren {
+  options?: LenisOptions;
+}
+
+export function LenisProvider({
+  children,
+  options,
+}: LenisProviderProps) {
+  return <ReactLenis {...(options ? { options } : {})}>{children}</ReactLenis>;
 }
