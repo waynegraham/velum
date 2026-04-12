@@ -1,6 +1,6 @@
 import type { MetadataEntry, ManifestModel } from "@velum/core";
 
-import { Caption, Section } from "@/components/layout";
+import { Caption, Eyebrow, MediaFrame, Section } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 
 import styles from "./homepage.module.css";
@@ -37,17 +37,17 @@ export function ArrivalSection({
       >
         {heroImage ? (
           <MotionBlock
-            as="figure"
+            as="div"
             className={styles.heroFigure}
             reveal={{ delay: 0.04, distance: 8, duration: 0.86, start: "top 97%" }}
             parallax={{ distance: 3 }}
           >
-            <div className={styles.heroArtwork}>
+            <MediaFrame className={styles.heroArtwork} width="page">
               <img
                 src={heroImage.id}
                 alt={heroCanvas?.label ?? manifest?.label ?? "IIIF artwork"}
               />
-            </div>
+            </MediaFrame>
           </MotionBlock>
         ) : (
           <div className={styles.heroPlaceholder}>
@@ -63,6 +63,7 @@ export function ArrivalSection({
           className={styles.heroOverlay}
           reveal={{ delay: 0.14, distance: 6, duration: 0.78, start: "top 97%" }}
         >
+          <Eyebrow className={styles.heroEyebrow}>Velum</Eyebrow>
           <h1 className={styles.heroTitle}>Velum</h1>
           <p className={styles.heroText}>
             IIIF components for image-led reading.

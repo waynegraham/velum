@@ -1,3 +1,4 @@
+import { Eyebrow, ReadingColumn } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 import { TransitionSection } from "@/components/motion/TransitionSection";
 
@@ -14,14 +15,14 @@ export function DeliberationSection() {
     <TransitionSection marker="Deliberate engagement" space="xl" tone="base">
       <div className={styles.deliberation}>
         <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
-          <div className={styles.deliberationIntro}>
-            <p className={styles.sectionMarker}>A slower interaction</p>
+          <ReadingColumn className={styles.deliberationIntro} width="content">
+            <Eyebrow>A slower interaction</Eyebrow>
             <p className={styles.deliberationText}>
               Velum is built around the idea that attention can be shaped gently. The
               page does not ask for urgency here; it simply leaves enough room for the
               eye to linger, compare, and return.
             </p>
-          </div>
+          </ReadingColumn>
         </MotionBlock>
 
         <MotionBlock

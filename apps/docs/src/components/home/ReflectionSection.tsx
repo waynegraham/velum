@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Caption, Container, Eyebrow, ReadingColumn } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 import { TransitionSection } from "@/components/motion/TransitionSection";
 
@@ -14,8 +15,8 @@ export function ReflectionSection({ manifestUrl }: ReflectionSectionProps) {
     <TransitionSection marker="Reflection" space="xl" tone="surface">
       <div className={styles.reflection}>
         <MotionBlock reveal={{ distance: 8, duration: 0.74, start: "top 94%" }}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.sectionMarker}>Closing section</p>
+          <ReadingColumn className={styles.sectionHeader} width="content">
+            <Eyebrow>Closing section</Eyebrow>
             <h2 className={styles.reflectionTitle}>
               Documentation can feel like a reading room when the interface yields.
             </h2>
@@ -24,26 +25,26 @@ export function ReflectionSection({ manifestUrl }: ReflectionSectionProps) {
               the UI should behave more like framing than control chrome. That applies
               equally to the library and to the way the documentation introduces it.
             </p>
-          </div>
+          </ReadingColumn>
         </MotionBlock>
 
         <MotionBlock
           className={styles.reflectionNote}
           reveal={{ delay: 0.1, distance: 8, duration: 0.72, start: "top 94%" }}
         >
-          <p className={styles.metaLabel}>Continue</p>
-          <p className={styles.reflectionCopy}>
+          <Eyebrow className={styles.metaLabel}>Continue</Eyebrow>
+          <Caption className={styles.reflectionCopy}>
             Read the component notes, inspect the manifest source, or move into the
             package code from the footer. The page closes quietly so the work can
             continue below without another interface flourish.
-          </p>
-          <div className={styles.reflectionLinks}>
+          </Caption>
+          <Container className={styles.reflectionLinks} width="content">
             <Link href="/canvas-sequence">CanvasSequence</Link>
             <Link href="/scroll-story">ScrollStory</Link>
             <a href={manifestUrl} target="_blank" rel="noreferrer">
               Source manifest
             </a>
-          </div>
+          </Container>
         </MotionBlock>
       </div>
     </TransitionSection>
