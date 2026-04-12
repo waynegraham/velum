@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
+import { Footer } from "@/components/footer/Footer";
 import { Navbar } from "@/components/navigation/Navbar";
 
 import "./globals.css";
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
