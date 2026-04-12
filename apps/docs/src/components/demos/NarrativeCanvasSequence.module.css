@@ -1,45 +1,72 @@
 .sequence {
-  --sequence-measure: min(100%, 48rem);
+  --sequence-measure: min(100%, 58rem);
 }
 
-.sequence :global(figure) {
-  width: var(--sequence-measure);
+.group {
+  display: grid;
+}
+
+.figure {
+  width: min(var(--sequence-measure), 100%);
   margin: 0 auto;
-  padding-block: clamp(2.5rem, 6vw, 4.25rem) clamp(4.75rem, 10vw, 7.5rem);
-  opacity: 0.4;
-  transform: translate3d(0, 1rem, 0);
+  padding-block: clamp(4rem, 10vw, 7rem) clamp(6rem, 13vw, 10rem);
+  opacity: 0.26;
+  transform: translate3d(0, 1.5rem, 0);
   transition:
-    opacity 520ms ease,
-    transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 700ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.sequence :global(figure[data-state="active"]) {
+.figure[data-state="active"],
+.interlude[data-state="active"] {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
-.sequence :global(figure:nth-child(odd)) {
-  margin-right: auto;
+.group:nth-child(3n + 1) .figure {
+  width: min(100%, 52rem);
 }
 
-.sequence :global(figure:nth-child(even)) {
-  margin-left: auto;
+.group:nth-child(3n + 2) .figure {
+  width: min(100%, 44rem);
 }
 
-.sequence :global(img) {
+.group:nth-child(3n) .figure {
+  width: min(100%, 48rem);
+}
+
+.image {
   width: 100%;
-  max-height: min(80svh, 56rem);
+  max-height: min(84svh, 62rem);
   object-fit: contain;
   margin-inline: auto;
-  background: color-mix(in srgb, var(--surface) 55%, transparent 45%);
 }
 
-.sequence :global(figcaption) {
-  max-width: 24rem;
-  margin-top: var(--space-3);
-  color: var(--text-muted);
-  font-size: var(--step--1);
-  line-height: var(--leading-caption);
+.caption {
+  max-width: 18rem;
+  margin-top: clamp(1rem, 2vw, 1.4rem);
+  color: color-mix(in srgb, var(--foreground) 54%, var(--background) 46%);
+  font-size: 0.74rem;
+  line-height: 1.55;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.interlude {
+  width: min(100%, 24rem);
+  margin: 0 auto;
+  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+  color: color-mix(in srgb, var(--foreground) 66%, var(--background) 34%);
+  font-family: var(--font-display-family), serif;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.38;
+  text-align: center;
+  opacity: 0.24;
+  transform: translate3d(0, 1rem, 0);
+  transition:
+    opacity 700ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  text-wrap: balance;
 }
 
 @media (max-width: 720px) {
@@ -47,13 +74,20 @@
     --sequence-measure: 100%;
   }
 
-  .sequence :global(figure) {
-    padding-block: clamp(2rem, 6vw, 3rem) clamp(3.5rem, 9vw, 5rem);
+  .figure {
+    width: 100%;
+    padding-block: clamp(2.5rem, 8vw, 4rem) clamp(4rem, 11vw, 6rem);
+  }
+
+  .interlude {
+    width: min(100%, 20rem);
+    padding-bottom: clamp(1rem, 4vw, 2rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sequence :global(figure) {
+  .figure,
+  .interlude {
     opacity: 1;
     transform: none;
     transition: none;
