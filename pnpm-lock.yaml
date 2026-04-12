@@ -158,6 +158,9 @@ importers:
       '@velum/adapters':
         specifier: workspace:*
         version: link:../adapters
+      '@velum/core':
+        specifier: workspace:*
+        version: link:../core
       '@velum/react':
         specifier: workspace:*
         version: link:../react

@@ -14,13 +14,14 @@
   },
   "files": ["dist"],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react,react-dom",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react,react-dom",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react,react-dom,@velum/core,@velum/react,@velum/adapters",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch --external react,react-dom,@velum/core,@velum/react,@velum/adapters",
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
+    "@velum/core": "workspace:*",
     "@velum/adapters": "workspace:*",
     "@velum/react": "workspace:*"
   },
