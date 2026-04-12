@@ -1,0 +1,373 @@
+.page {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.sectionMarker,
+.sectionEyebrow,
+.manifestEyebrow,
+.routeLabel,
+.metaLabel {
+  color: var(--text-subtle);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.sectionTitle,
+.displayTitle,
+.manifestTitle,
+.reflectionTitle {
+  font-family: var(--font-display-family), serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.sectionTitle {
+  max-width: 12ch;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+}
+
+.arrival {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  min-height: calc(100svh - var(--chrome-gap));
+}
+
+.arrivalIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.7fr);
+  gap: clamp(1.75rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.arrivalLead {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.displayTitle {
+  max-width: 9ch;
+  font-size: clamp(4rem, 9.5vw, 8.3rem);
+}
+
+.displayBody {
+  max-width: 26rem;
+  color: color-mix(in srgb, var(--foreground) 82%, var(--background) 18%);
+  font-family: var(--font-display-family), serif;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.18;
+}
+
+.arrivalNote {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 0.35rem;
+}
+
+.noteBody {
+  max-width: 18rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.arrivalMedia {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: end;
+}
+
+.heroFigure {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.heroArtwork {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 60%, transparent 40%) 0%,
+      color-mix(in srgb, var(--background) 90%, var(--surface) 10%) 100%
+    );
+}
+
+.heroArtwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(0.97);
+}
+
+.heroPlaceholder {
+  min-height: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 1px solid var(--line-subtle);
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.manifestDetail {
+  display: grid;
+  gap: 0.7rem;
+  align-self: stretch;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.manifestTitle {
+  max-width: 10ch;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.manifestMeta {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.orientationGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.orientationBody {
+  max-width: 34rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.principles {
+  display: grid;
+  gap: 1.35rem;
+  padding-top: 0.4rem;
+}
+
+.principle {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.principleTitle {
+  font-family: var(--font-display-family), serif;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.principleBody {
+  max-width: 22rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.encounter {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.encounterIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+}
+
+.encounterBody {
+  max-width: 32rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.encounterLinks,
+.reflectionLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.encounterLinks a,
+.reflectionLinks a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.encounterLinks a:hover,
+.reflectionLinks a:hover {
+  color: var(--foreground);
+}
+
+.encounterSideNote {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.demoStage {
+  display: grid;
+  gap: 1.2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.statusMessage {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.exploration {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.explorationLead {
+  max-width: 32rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.routeList {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.routeRow {
+  display: grid;
+  grid-template-columns: minmax(6rem, 0.4fr) minmax(0, 1fr) minmax(12rem, 0.72fr);
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.routeTitle {
+  font-family: var(--font-display-family), serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+.routeTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.routeTitle a:hover {
+  color: var(--foreground);
+}
+
+.routeSummary,
+.routeMeta {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.72;
+}
+
+.reflection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.8fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.reflectionTitle {
+  max-width: 11ch;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+}
+
+.reflectionBody {
+  max-width: 32rem;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.82;
+}
+
+.reflectionNote {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.reflectionCopy {
+  max-width: 22rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.72;
+}
+
+@media (max-width: 920px) {
+  .arrivalIntro,
+  .arrivalMedia,
+  .orientationGrid,
+  .encounterIntro,
+  .reflection {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .manifestDetail,
+  .arrivalNote,
+  .reflectionNote {
+    max-width: 28rem;
+  }
+
+  .routeRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .arrival {
+    min-height: auto;
+  }
+
+  .displayTitle {
+    font-size: clamp(3.4rem, 16vw, 5.2rem);
+  }
+
+  .heroPlaceholder {
+    min-height: 22rem;
+  }
+
+  .manifestTitle,
+  .reflectionTitle,
+  .routeTitle {
+    max-width: none;
+  }
+}
