@@ -83,26 +83,21 @@
 }
 
 .heroFigure {
-  width: min(100%, 560px);
+  width: min(100%, 600px);
   display: grid;
-  gap: var(--space-3);
+  gap: clamp(0.75rem, 2vw, 1rem);
 }
 
 .heroImage {
-  display: block;
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  background: var(--surface);
-  box-shadow: 0 24px 60px rgba(29, 29, 27, 0.08);
+  object-fit: contain;
+  background: color-mix(in srgb, var(--surface) 55%, transparent 45%);
 }
 
 .caption {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.2rem;
+  max-width: 24rem;
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.5;
@@ -185,7 +180,7 @@
 }
 
 .demoFrame {
-  padding: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+  padding: clamp(2rem, 4vw, 3rem) 0 0;
   border-top: 1px solid var(--line);
 }
 
@@ -230,7 +225,7 @@
   }
 
   .caption {
-    flex-direction: column;
+    max-width: none;
   }
 }
 

@@ -65,7 +65,7 @@ export default function CanvasSequenceDocsPage() {
 
       <Section className={styles.section} space="lg">
         <h2 className="type-h2 reading-width-tight">Live Demo</h2>
-        <div className="docs-panel stack-4">
+        <div className={styles.demoSection}>
           <p className="type-body reading-width-wide">
             This demo loads a public IIIF manifest and renders the first five
             canvases with `CanvasSequence`, then adds calmer spacing and

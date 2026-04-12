@@ -6,19 +6,11 @@
   --story-progress: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.9fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
   min-height: 100svh;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
   border-top: 1px solid var(--line-subtle);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0) 24%,
-      rgba(23, 23, 23, 0.03) 100%
-    ),
-    color-mix(in srgb, var(--surface) 82%, white 18%);
 }
 
 .story[data-motion="enabled"] .section {
@@ -31,30 +23,30 @@
 
 .section :global(figure) {
   position: relative;
-  max-width: min(100%, 52rem);
+  max-width: min(100%, 56rem);
   margin: 0 auto;
   transform: translate3d(
     0,
-    calc((1 - var(--story-progress)) * 1.5rem - (var(--story-progress) * 0.4rem)),
+    calc((1 - var(--story-progress)) * 1.25rem - (var(--story-progress) * 0.35rem)),
     0
   );
-  opacity: calc(0.62 + (var(--story-progress) * 0.38));
+  opacity: calc(0.72 + (var(--story-progress) * 0.28));
   transition:
     opacity 320ms ease,
     transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .section :global(img) {
-  display: block;
   width: 100%;
-  height: auto;
-  box-shadow: 0 28px 60px rgba(23, 23, 23, 0.12);
-  background: var(--surface-strong);
+  max-height: min(82svh, 60rem);
+  object-fit: contain;
+  margin-inline: auto;
+  background: color-mix(in srgb, var(--surface) 55%, transparent 45%);
 }
 
 .section :global(figcaption) {
-  max-width: 30rem;
-  margin-top: var(--space-3);
+  max-width: 24rem;
+  margin-top: var(--space-2);
   color: var(--text-muted);
 }
 
@@ -62,14 +54,10 @@
   position: sticky;
   top: clamp(1rem, 3vw, 2rem);
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-2);
   align-self: center;
-  padding: clamp(1.1rem, 2vw, 1.4rem);
-  border: 1px solid var(--line-subtle);
-  background: rgba(245, 241, 232, 0.84);
-  backdrop-filter: blur(12px);
   transform: translate3d(0, calc((1 - var(--story-progress)) * 1rem), 0);
-  opacity: calc(0.54 + (var(--story-progress) * 0.46));
+  opacity: calc(0.58 + (var(--story-progress) * 0.42));
   transition:
     opacity 320ms ease,
     transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -96,7 +84,7 @@
   display: grid;
   gap: 0.8rem;
   padding-top: var(--space-2);
-  border-top: 1px solid var(--line-subtle);
+  border-top: 1px solid color-mix(in srgb, var(--line-subtle) 75%, transparent 25%);
 }
 
 .meta div {
@@ -122,6 +110,7 @@
   .section {
     grid-template-columns: 1fr;
     min-height: auto;
+    padding-block: clamp(1.5rem, 5vw, 2.5rem);
   }
 
   .panel {

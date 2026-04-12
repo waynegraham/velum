@@ -75,13 +75,13 @@ export default function ScrollStoryDocsPage() {
           </div>
         </Section>
 
-        <Section className={styles.section} space="lg">
-          <h2 className="type-h2 reading-width-tight">Live Demo</h2>
-          <div className="docs-panel stack-4">
-            <p className="type-body reading-width-wide">
-              The demo below loads a public IIIF manifest, limits the sequence to
-              five canvases, and gives each canvas its own section with restrained
-              fade and parallax cues. Without motion, the same sections remain fully
+      <Section className={styles.section} space="lg">
+        <h2 className="type-h2 reading-width-tight">Live Demo</h2>
+        <div className={styles.demoSection}>
+          <p className="type-body reading-width-wide">
+            The demo below loads a public IIIF manifest, limits the sequence to
+            five canvases, and gives each canvas its own section with restrained
+            fade and parallax cues. Without motion, the same sections remain fully
               visible and readable.
             </p>
 

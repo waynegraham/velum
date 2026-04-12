@@ -16,6 +16,13 @@
   gap: 1rem;
 }
 
+.demoSection {
+  display: grid;
+  gap: var(--space-4);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--line-subtle);
+}
+
 .demoMeta {
   display: grid;
   gap: 0.5rem;

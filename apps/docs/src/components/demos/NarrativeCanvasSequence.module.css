@@ -1,13 +1,13 @@
 .sequence {
-  --sequence-measure: min(100%, 44rem);
+  --sequence-measure: min(100%, 48rem);
 }
 
 .sequence :global(figure) {
   width: var(--sequence-measure);
   margin: 0 auto;
-  padding-block: clamp(1rem, 2vw, 1.5rem) clamp(2.5rem, 5vw, 4rem);
-  opacity: 0.42;
-  transform: translate3d(0, 1.25rem, 0);
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(4rem, 9vw, 6.5rem);
+  opacity: 0.4;
+  transform: translate3d(0, 1rem, 0);
   transition:
     opacity 420ms ease,
     transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -27,16 +27,16 @@
 }
 
 .sequence :global(img) {
-  display: block;
   width: 100%;
-  height: auto;
-  background: var(--surface-strong);
-  box-shadow: 0 18px 40px rgba(23, 23, 23, 0.08);
+  max-height: min(80svh, 56rem);
+  object-fit: contain;
+  margin-inline: auto;
+  background: color-mix(in srgb, var(--surface) 55%, transparent 45%);
 }
 
 .sequence :global(figcaption) {
-  max-width: 28rem;
-  margin-top: var(--space-3);
+  max-width: 24rem;
+  margin-top: var(--space-2);
   color: var(--text-muted);
   font-size: var(--step--1);
   line-height: var(--leading-caption);
@@ -48,7 +48,7 @@
   }
 
   .sequence :global(figure) {
-    padding-bottom: clamp(2rem, 6vw, 3rem);
+    padding-block: clamp(1.5rem, 5vw, 2.5rem) clamp(3rem, 8vw, 4rem);
   }
 }
 
