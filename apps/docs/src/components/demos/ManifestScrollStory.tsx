@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useEffectEvent, useMemo, useState } from "react";
+import { useEffectEvent, useMemo } from "react";
 
 import type { CanvasModel, ManifestModel } from "@velum/core";
+import { usePrefersReducedMotion } from "@velum/adapters";
 import { ScrollStory } from "@velum/templates";
 
 import styles from "./ManifestScrollStory.module.css";
@@ -66,25 +67,7 @@ export function ManifestScrollStory({
   manifest,
   maxCanvases = 5,
 }: ManifestScrollStoryProps) {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(true);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handleChange = () => {
-      setPrefersReducedMotion(mediaQuery.matches);
-    };
-
-    handleChange();
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const storyManifest = useMemo(
     () => ({

@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useLayoutEffect, type RefObject } from "react";
-import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { ensureScrollTriggerRegistered } from "./scrollTrigger";
 
 export interface UseScrollSceneOptions extends ScrollTrigger.Vars {
   enabled?: boolean;
@@ -10,15 +11,6 @@ export interface UseScrollSceneOptions extends ScrollTrigger.Vars {
 
 const useIsomorphicLayoutEffect =
   typeof window === "undefined" ? useEffect : useLayoutEffect;
-
-let scrollTriggerRegistered = false;
-
-function ensureScrollTriggerRegistered() {
-  if (!scrollTriggerRegistered) {
-    gsap.registerPlugin(ScrollTrigger);
-    scrollTriggerRegistered = true;
-  }
-}
 
 export function useScrollScene<TElement extends Element>(
   ref: RefObject<TElement | null>,

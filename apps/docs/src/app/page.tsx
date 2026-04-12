@@ -8,6 +8,7 @@ import { useManifest } from "@velum/react";
 
 import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
 import { Container, Section } from "@/components/layout";
+import { MotionBlock } from "@/components/motion/MotionBlock";
 
 import styles from "./page.module.css";
 
@@ -57,7 +58,10 @@ export default function HomePage() {
     <LenisProvider>
       <main className={styles.page}>
         <Section className={styles.hero} space="hero">
-          <div className={styles.heroCopy}>
+          <MotionBlock
+            className={styles.heroCopy}
+            reveal={{ distance: 20, duration: 0.48, start: "top 90%" }}
+          >
             <p className={styles.eyebrow}>Velum documentation</p>
             <h1 className={styles.heroTitle}>
               IIIF components presented like an exhibition, not a dashboard.
@@ -92,11 +96,15 @@ export default function HomePage() {
                 </div>
               ) : null}
             </dl>
-          </div>
+          </MotionBlock>
 
-          <div className={styles.heroMedia}>
+          <MotionBlock className={styles.heroMedia} parallax={{ distance: 10 }}>
             {heroImage ? (
-              <figure className={styles.heroFigure}>
+              <MotionBlock
+                as="figure"
+                className={styles.heroFigure}
+                reveal={{ delay: 0.08, distance: 16, duration: 0.52, start: "top 92%" }}
+              >
                 <img
                   className={styles.heroImage}
                   src={heroImage.id}
@@ -106,25 +114,33 @@ export default function HomePage() {
                   <span>{manifest?.label}</span>
                   <span>{heroCanvas?.label ?? "Opening canvas"}</span>
                 </figcaption>
-              </figure>
+              </MotionBlock>
             ) : (
               <div className={styles.placeholder}>
                 {isLoading ? "Loading IIIF manifest..." : "Image unavailable."}
               </div>
             )}
-          </div>
+          </MotionBlock>
         </Section>
 
         <Container className={styles.sectionMarkerContainer} width="page">
-          <SectionMarker>Preface</SectionMarker>
+          <MotionBlock reveal={{ distance: 12, duration: 0.42 }}>
+            <SectionMarker>Preface</SectionMarker>
+          </MotionBlock>
         </Container>
 
         <Section className={styles.intro} space="xl">
-          <div className={styles.copyBlock}>
+          <MotionBlock
+            className={styles.copyBlock}
+            reveal={{ distance: 18, duration: 0.46 }}
+          >
             <p className={styles.kicker}>Editorial introduction</p>
             <p className={styles.introText}>{summary}</p>
-          </div>
-          <div className={styles.copyBlock}>
+          </MotionBlock>
+          <MotionBlock
+            className={styles.copyBlock}
+            reveal={{ delay: 0.06, distance: 16, duration: 0.46 }}
+          >
             <p className={styles.bodyText}>
               The core stays domain-first. React components render normalized
               canvases. Motion remains optional. What matters here is pace: enough
@@ -135,20 +151,28 @@ export default function HomePage() {
               Start with a simple primitive, then layer adapters or templates only
               where the story needs them.
             </p>
-          </div>
+          </MotionBlock>
         </Section>
 
         <Container className={styles.sectionMarkerContainer} width="page">
-          <SectionMarker>Featured demo</SectionMarker>
+          <MotionBlock reveal={{ distance: 12, duration: 0.42 }}>
+            <SectionMarker>Featured demo</SectionMarker>
+          </MotionBlock>
         </Container>
 
         <Section className={styles.featureSection} space="xl">
           <div className={styles.featureHeader}>
-            <div className={styles.copyBlock}>
+            <MotionBlock
+              className={styles.copyBlock}
+              reveal={{ distance: 18, duration: 0.46 }}
+            >
               <p className={styles.kicker}>Featured component</p>
               <h2 className={styles.sectionTitle}>CanvasSequence</h2>
-            </div>
-            <div className={styles.copyBlock}>
+            </MotionBlock>
+            <MotionBlock
+              className={styles.copyBlock}
+              reveal={{ delay: 0.06, distance: 16, duration: 0.46 }}
+            >
               <p className={styles.bodyText}>
                 A restrained starting point for manifests that already carry their
                 own rhythm. It renders canvases as a legible visual sequence without
@@ -161,10 +185,13 @@ export default function HomePage() {
                   Open the source manifest
                 </a>
               </p>
-            </div>
+            </MotionBlock>
           </div>
 
-          <div className={styles.demoFrame}>
+          <MotionBlock
+            className={styles.demoFrame}
+            reveal={{ distance: 18, duration: 0.5, start: "top 86%" }}
+          >
             {error ? (
               <p className={styles.statusMessage}>
                 Unable to load the manifest: {error.message}
@@ -178,19 +205,27 @@ export default function HomePage() {
             {featuredCanvases.length > 0 ? (
               <NarrativeCanvasSequence canvases={featuredCanvases} />
             ) : null}
-          </div>
+          </MotionBlock>
         </Section>
 
         <Container className={styles.sectionMarkerContainer} width="page">
-          <SectionMarker>Approach</SectionMarker>
+          <MotionBlock reveal={{ distance: 12, duration: 0.42 }}>
+            <SectionMarker>Approach</SectionMarker>
+          </MotionBlock>
         </Container>
 
         <Section className={styles.notesSection} space="xl">
-          <div className={styles.copyBlock}>
+          <MotionBlock
+            className={styles.copyBlock}
+            reveal={{ distance: 18, duration: 0.46 }}
+          >
             <p className={styles.kicker}>What this page is doing</p>
             <h2 className={styles.sectionTitle}>Deliberate transitions, minimal chrome.</h2>
-          </div>
-          <div className={styles.notesGrid}>
+          </MotionBlock>
+          <MotionBlock
+            className={styles.notesGrid}
+            reveal={{ delay: 0.04, distance: 16, duration: 0.46 }}
+          >
             <p className={styles.bodyText}>
               The oversized image establishes scale before explanation. Thin rules,
               captions, and measured type shifts replace cards, badges, and control
@@ -201,7 +236,7 @@ export default function HomePage() {
               paced rather than stacked. The result stays usable as documentation,
               but it reads closer to an exhibition leaflet than a product page.
             </p>
-          </div>
+          </MotionBlock>
         </Section>
       </main>
     </LenisProvider>

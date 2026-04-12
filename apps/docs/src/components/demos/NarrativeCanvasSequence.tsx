@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useEffectEvent, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef } from "react";
 
 import type { CanvasModel } from "@velum/core";
-import { useScrollScene } from "@velum/adapters";
+import { usePrefersReducedMotion, useScrollScene } from "@velum/adapters";
 import { CanvasSequence } from "@velum/react";
 
 import styles from "./NarrativeCanvasSequence.module.css";
@@ -24,25 +24,7 @@ export function NarrativeCanvasSequence({
   canvases,
 }: NarrativeCanvasSequenceProps) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(true);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handleChange = () => {
-      setPrefersReducedMotion(mediaQuery.matches);
-    };
-
-    handleChange();
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const syncFigureStates = useEffectEvent(() => {
     const root = rootRef.current;
