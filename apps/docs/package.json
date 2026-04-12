@@ -11,7 +11,11 @@
   "dependencies": {
     "next": "16.2.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "@velum/adapters": "workspace:*",
+    "@velum/core": "workspace:*",
+    "@velum/react": "workspace:*",
+    "@velum/templates": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
