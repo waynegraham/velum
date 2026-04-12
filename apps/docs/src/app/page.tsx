@@ -156,6 +156,7 @@ export default function HomePage() {
               </p>
               <p className={styles.inlineLinks}>
                 <Link href="/canvas-sequence">Read the component notes</Link>
+                <Link href="/scroll-story">Open the scroll story page</Link>
                 <a href={manifestUrl} target="_blank" rel="noreferrer">
                   Open the source manifest
                 </a>
