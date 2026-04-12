@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Caption, Eyebrow, ReadingColumn } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 import { TransitionSection } from "@/components/motion/TransitionSection";
 
@@ -37,8 +38,8 @@ export function ExplorationSection() {
     <TransitionSection marker="Exploration" space="xl" tone="base">
       <div className={styles.exploration}>
         <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.sectionMarker}>Components and templates</p>
+          <ReadingColumn className={styles.sectionHeader} width="content">
+            <Eyebrow>Components and templates</Eyebrow>
             <h2 className={styles.sectionTitle}>
               Continue through the library by following the sequence, not a grid of cards.
             </h2>
@@ -47,7 +48,7 @@ export function ExplorationSection() {
               package boundary: a primitive component, a more opinionated template, and
               the package structure underneath both.
             </p>
-          </div>
+          </ReadingColumn>
         </MotionBlock>
 
         <div className={styles.routeList}>
@@ -62,7 +63,7 @@ export function ExplorationSection() {
                 start: "top 94%",
               }}
             >
-              <p className={styles.routeLabel}>{route.label}</p>
+              <Eyebrow className={styles.routeLabel}>{route.label}</Eyebrow>
               <div>
                 <h3 className={styles.routeTitle}>
                   {route.href.startsWith("/") ? (
@@ -75,7 +76,7 @@ export function ExplorationSection() {
                 </h3>
                 <p className={styles.routeSummary}>{route.summary}</p>
               </div>
-              <p className={styles.routeMeta}>{route.meta}</p>
+              <Caption className={styles.routeMeta}>{route.meta}</Caption>
             </MotionBlock>
           ))}
         </div>

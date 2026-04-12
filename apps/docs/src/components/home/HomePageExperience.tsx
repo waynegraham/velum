@@ -3,6 +3,8 @@
 import { LenisProvider } from "@velum/adapters";
 import { useManifest } from "@velum/react";
 
+import { PageFrame } from "@/components/layout";
+
 import { ArrivalSection } from "./ArrivalSection";
 import { DeliberationSection } from "./DeliberationSection";
 import { EncounterSection } from "./EncounterSection";
@@ -20,14 +22,14 @@ export function HomePageExperience() {
 
   return (
     <LenisProvider>
-      <main className={styles.page}>
+      <PageFrame className={styles.page}>
         <ArrivalSection {...manifestState} />
         <OrientationSection />
         <EncounterSection manifestUrl={manifestUrl} {...manifestState} />
         <DeliberationSection />
         <ExplorationSection />
         <ReflectionSection manifestUrl={manifestUrl} />
-      </main>
+      </PageFrame>
     </LenisProvider>
   );
 }

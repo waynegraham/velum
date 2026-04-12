@@ -1,5 +1,6 @@
 import type { ManifestModel } from "@velum/core";
 
+import { Eyebrow, MediaFrame, ReadingColumn } from "@/components/layout";
 import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 import { TransitionSection } from "@/components/motion/TransitionSection";
@@ -24,8 +25,8 @@ export function EncounterSection({
     <TransitionSection marker="Encounter" space="xl" tone="surface">
       <div className={styles.encounter}>
         <MotionBlock reveal={{ distance: 10, duration: 0.72, start: "top 94%" }}>
-          <div className={styles.encounterHeader}>
-            <p className={styles.sectionMarker}>Encounter</p>
+          <ReadingColumn className={styles.encounterHeader}>
+            <Eyebrow>Encounter</Eyebrow>
             <h2 className={styles.sectionTitle}>
               A sequence of canvases, held apart long enough to be looked at.
             </h2>
@@ -34,10 +35,10 @@ export function EncounterSection({
               The motion only marks arrival and distance, so each image can keep its own
               weight before the next one enters.
             </p>
-          </div>
+          </ReadingColumn>
         </MotionBlock>
 
-        <div className={styles.encounterStage}>
+        <MediaFrame as="div" className={styles.encounterStage} width="page">
           {error ? (
             <p className={styles.statusMessage}>
               Unable to load the manifest: {error.message}
@@ -51,7 +52,7 @@ export function EncounterSection({
           {featuredCanvases.length > 0 ? (
             <NarrativeCanvasSequence canvases={featuredCanvases} />
           ) : null}
-        </div>
+        </MediaFrame>
       </div>
     </TransitionSection>
   );

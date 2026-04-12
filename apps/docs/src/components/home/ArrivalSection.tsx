@@ -1,6 +1,6 @@
 import type { MetadataEntry, ManifestModel } from "@velum/core";
 
-import { Section } from "@/components/layout";
+import { Caption, Section } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 
 import styles from "./homepage.module.css";
@@ -73,11 +73,11 @@ export function ArrivalSection({
           className={styles.heroCaption}
           reveal={{ delay: 0.2, distance: 4, duration: 0.76, start: "top 97%" }}
         >
-          <p>
+          <Caption>
             {maker ?? "Harvard Art Museums"}
             {period ? `, ${period}` : ""}
-          </p>
-          <p>{heroCanvas?.label ?? manifest?.label ?? "Opening canvas"}</p>
+          </Caption>
+          <Caption>{heroCanvas?.label ?? manifest?.label ?? "Opening canvas"}</Caption>
         </MotionBlock>
       </MotionBlock>
     </Section>
