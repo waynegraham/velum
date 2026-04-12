@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Caption, Eyebrow } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 
 import styles from "./Footer.module.css";
@@ -15,14 +16,14 @@ export function Footer() {
           className={styles.description}
           reveal={{ distance: 8, duration: 0.44, start: "top 94%" }}
         >
-          <p className={styles.eyebrow}>Velum</p>
+          <Eyebrow className={styles.eyebrow}>Velum</Eyebrow>
           <p className={styles.copy}>
             Velum frames IIIF as a reading experience: normalized manifest data,
             restrained React primitives, and motion only where the sequence asks for it.
           </p>
-          <p className={styles.context}>
+          <Caption className={styles.context}>
             A system for building IIIF-driven, interactive cultural experiences.
-          </p>
+          </Caption>
         </MotionBlock>
 
         <MotionBlock
