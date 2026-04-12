@@ -1,53 +1,50 @@
 import type { ElementType, HTMLAttributes, ReactNode } from "react";
-
-import type { ContainerWidth, SectionSpace } from "./config";
 import { cx } from "./utils";
-
 import styles from "./layout.module.css";
 
 export interface SectionProps extends HTMLAttributes<HTMLElement> {
-  as?: ElementType;
   children: ReactNode;
-  divider?: boolean;
-  space?: SectionSpace;
-  width?: ContainerWidth;
+  /** Layout variant. Combines width and vertical rhythm into standard presets. */
+  variant?: "default" | "hero" | "narrow" | "wide";
+  /** Optional polymorphic component prop */
+  as?: ElementType;
 }
 
-const containerClassNames: Record<ContainerWidth, string> = {
-  narrow: styles.containerNarrow ?? "",
-  reading: styles.containerReading ?? "",
-  content: styles.containerContent ?? "",
-  media: styles.containerMedia ?? "",
-  page: styles.containerPage ?? "",
-  full: styles.containerFull ?? "",
-};
-
-const sectionClassNames: Record<SectionSpace, string> = {
-  sm: styles.sectionSm ?? "",
-  md: styles.sectionMd ?? "",
-  lg: styles.sectionLg ?? "",
-  xl: styles.sectionXl ?? "",
-  hero: styles.sectionHero ?? "",
-};
-
 export function Section({
-  as: Component = "section",
   children,
+  variant = "default",
+  as: Component = "section",
   className,
-  divider = false,
-  space = "lg",
-  width = "page",
   ...props
 }: SectionProps) {
+  let widthClass = styles.containerReading;
+  let spaceClass = styles.sectionLg;
+
+  switch (variant) {
+    case "narrow":
+      widthClass = styles.containerNarrow;
+      break;
+    case "wide":
+      widthClass = styles.containerWide;
+      break;
+    case "hero":
+      widthClass = styles.containerPage;
+      spaceClass = styles.sectionHero;
+      break;
+    case "default":
+    default:
+      widthClass = styles.containerReading;
+      break;
+  }
+
   return (
     <Component
       className={cx(
         styles.container,
-        containerClassNames[width],
+        widthClass,
         styles.section,
-        sectionClassNames[space],
-        divider && styles.divider,
-        className,
+        spaceClass,
+        className
       )}
       {...props}
     >
