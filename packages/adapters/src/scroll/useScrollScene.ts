@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, type RefObject } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export interface UseScrollSceneOptions extends ScrollTrigger.StaticVars {
+export interface UseScrollSceneOptions extends ScrollTrigger.Vars {
   enabled?: boolean;
 }
 

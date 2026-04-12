@@ -30,11 +30,19 @@
   --space-6: 3rem;
   --space-7: 4.5rem;
 
-  --measure-tight: 28rem;
-  --measure: 38rem;
-  --measure-wide: 52rem;
-  --page-width: 1200px;
+  /* Layout widths keep copy centered and prevent dense docs pages. */
+  --container-narrow: 28rem;
+  --container-reading: 38rem;
+  --container-wide: 52rem;
+  --container-page: 1200px;
   --page-gutter: 1.5rem;
+
+  /* Section spacing defines vertical rhythm between major page beats. */
+  --space-section-sm: var(--space-5);
+  --space-section-md: clamp(2.5rem, 5vw, 4rem);
+  --space-section-lg: clamp(4rem, 8vw, 6rem);
+  --space-section-xl: clamp(5rem, 10vw, 8rem);
+  --space-section-hero: clamp(2rem, 5vw, 4rem);
 }
 
 @theme inline {
@@ -120,7 +128,7 @@ h6 {
 p,
 li,
 dd {
-  max-width: var(--measure);
+  max-width: var(--container-reading);
 }
 
 small,
@@ -150,7 +158,7 @@ pre {
 }
 
 .docs-page {
-  width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
+  width: min(var(--container-page), calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto;
   padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(4rem, 8vw, 6rem);
 }
@@ -171,15 +179,15 @@ pre {
 }
 
 .reading-width-tight {
-  max-width: var(--measure-tight);
+  max-width: var(--container-narrow);
 }
 
 .reading-width {
-  max-width: var(--measure);
+  max-width: var(--container-reading);
 }
 
 .reading-width-wide {
-  max-width: var(--measure-wide);
+  max-width: var(--container-wide);
 }
 
 .type-display {
@@ -326,8 +334,8 @@ pre {
   :root {
     --page-gutter: 0.75rem;
     --leading-body: 1.66;
-    --measure: 34rem;
-    --measure-wide: 40rem;
+    --container-reading: 34rem;
+    --container-wide: 40rem;
   }
 
   .docs-page {

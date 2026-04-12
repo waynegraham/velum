@@ -1,6 +1,14 @@
+.page {
+  padding-block: var(--space-section-sm) var(--space-section-lg);
+}
+
 .header {
   display: grid;
   gap: 0.8rem;
+}
+
+.headerSection {
+  border-top: 1px solid var(--line-subtle);
 }
 
 .section {

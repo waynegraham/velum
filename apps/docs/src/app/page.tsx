@@ -4,7 +4,10 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { LenisProvider } from "@velum/adapters";
-import { CanvasSequence, useManifest } from "@velum/react";
+import { useManifest } from "@velum/react";
+
+import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
+import { Container, Section } from "@/components/layout";
 
 import styles from "./page.module.css";
 
@@ -53,7 +56,7 @@ export default function HomePage() {
   return (
     <LenisProvider>
       <main className={styles.page}>
-        <section className={styles.hero}>
+        <Section className={styles.hero} space="hero">
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Velum documentation</p>
             <h1 className={styles.heroTitle}>
@@ -110,11 +113,13 @@ export default function HomePage() {
               </div>
             )}
           </div>
-        </section>
+        </Section>
 
-        <SectionMarker>Preface</SectionMarker>
+        <Container className={styles.sectionMarkerContainer} width="page">
+          <SectionMarker>Preface</SectionMarker>
+        </Container>
 
-        <section className={styles.intro}>
+        <Section className={styles.intro} space="xl">
           <div className={styles.copyBlock}>
             <p className={styles.kicker}>Editorial introduction</p>
             <p className={styles.introText}>{summary}</p>
@@ -131,11 +136,13 @@ export default function HomePage() {
               where the story needs them.
             </p>
           </div>
-        </section>
+        </Section>
 
-        <SectionMarker>Featured demo</SectionMarker>
+        <Container className={styles.sectionMarkerContainer} width="page">
+          <SectionMarker>Featured demo</SectionMarker>
+        </Container>
 
-        <section className={styles.featureSection}>
+        <Section className={styles.featureSection} space="xl">
           <div className={styles.featureHeader}>
             <div className={styles.copyBlock}>
               <p className={styles.kicker}>Featured component</p>
@@ -168,14 +175,16 @@ export default function HomePage() {
             ) : null}
 
             {featuredCanvases.length > 0 ? (
-              <CanvasSequence canvases={featuredCanvases} />
+              <NarrativeCanvasSequence canvases={featuredCanvases} />
             ) : null}
           </div>
-        </section>
+        </Section>
 
-        <SectionMarker>Approach</SectionMarker>
+        <Container className={styles.sectionMarkerContainer} width="page">
+          <SectionMarker>Approach</SectionMarker>
+        </Container>
 
-        <section className={styles.notesSection}>
+        <Section className={styles.notesSection} space="xl">
           <div className={styles.copyBlock}>
             <p className={styles.kicker}>What this page is doing</p>
             <h2 className={styles.sectionTitle}>Deliberate transitions, minimal chrome.</h2>
@@ -192,7 +201,7 @@ export default function HomePage() {
               but it reads closer to an exhibition leaflet than a product page.
             </p>
           </div>
-        </section>
+        </Section>
       </main>
     </LenisProvider>
   );

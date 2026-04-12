@@ -1,0 +1,52 @@
+.container {
+  width: min(var(--container-width), calc(100% - (var(--page-gutter) * 2)));
+  margin-inline: auto;
+}
+
+.containerFull {
+  width: calc(100% - (var(--page-gutter) * 2));
+}
+
+.containerPage {
+  --container-width: var(--container-page);
+}
+
+.containerWide {
+  --container-width: var(--container-wide);
+}
+
+.containerReading {
+  --container-width: var(--container-reading);
+}
+
+.containerNarrow {
+  --container-width: var(--container-narrow);
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.sectionHero {
+  --section-space: var(--space-section-hero);
+}
+
+.sectionXl {
+  --section-space: var(--space-section-xl);
+}
+
+.sectionLg {
+  --section-space: var(--space-section-lg);
+}
+
+.sectionMd {
+  --section-space: var(--space-section-md);
+}
+
+.sectionSm {
+  --section-space: var(--space-section-sm);
+}
+
+.divider {
+  border-top: 1px solid var(--line-subtle);
+}

@@ -1,6 +1,9 @@
 "use client";
 
-import { CanvasSequence, useManifest } from "@velum/react";
+import { useManifest } from "@velum/react";
+
+import { Section } from "@/components/layout";
+import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
 
 import styles from "./page.module.css";
 
@@ -22,8 +25,8 @@ export default function CanvasSequenceDocsPage() {
   const { manifest, isLoading, error } = useManifest(manifestUrl);
 
   return (
-    <main className="docs-page stack-5">
-      <header className={`${styles.header} docs-rule`}>
+    <main className={styles.page}>
+      <Section as="header" className={`${styles.header} ${styles.headerSection}`} space="md">
         <p className="type-label">@velum/react</p>
         <h1 className="type-h1 reading-width-tight">CanvasSequence</h1>
         <p className="type-body reading-width-wide">
@@ -32,9 +35,9 @@ export default function CanvasSequenceDocsPage() {
           data and you want a straightforward reading or browsing experience
           without adding custom rendering logic.
         </p>
-      </header>
+      </Section>
 
-      <section className={`${styles.section} docs-section`}>
+      <Section className={styles.section} space="lg">
         <h2 className="type-h2 reading-width-tight">What It Does</h2>
         <div className="docs-panel rich-text">
           <p className="type-body">
@@ -49,23 +52,24 @@ export default function CanvasSequenceDocsPage() {
             `useManifest`.
           </p>
         </div>
-      </section>
+      </Section>
 
-      <section className={`${styles.section} docs-section`}>
+      <Section className={styles.section} space="lg">
         <h2 className="type-h2 reading-width-tight">Example Usage</h2>
         <div className="docs-panel">
           <pre className="code-block">
             <code>{exampleCode}</code>
           </pre>
         </div>
-      </section>
+      </Section>
 
-      <section className={`${styles.section} docs-section`}>
+      <Section className={styles.section} space="lg">
         <h2 className="type-h2 reading-width-tight">Live Demo</h2>
         <div className="docs-panel stack-4">
           <p className="type-body reading-width-wide">
             This demo loads a public IIIF manifest and renders the first five
-            canvases with `CanvasSequence`.
+            canvases with `CanvasSequence`, then adds calmer spacing and
+            scroll-timed emphasis so the sequence reads as a paced narrative.
           </p>
 
           {isLoading ? <p className="type-caption">Loading manifest...</p> : null}
@@ -84,13 +88,13 @@ export default function CanvasSequenceDocsPage() {
                   </a>
                 </p>
               </div>
-              <CanvasSequence canvases={manifest.canvases.slice(0, 5)} />
+              <NarrativeCanvasSequence canvases={manifest.canvases.slice(0, 5)} />
             </div>
           ) : null}
         </div>
-      </section>
+      </Section>
 
-      <section className={`${styles.section} docs-section`}>
+      <Section className={styles.section} space="lg">
         <h2 className="type-h2 reading-width-tight">Accessibility</h2>
         <div className="docs-panel rich-text">
           <p className="type-body">
@@ -108,7 +112,7 @@ export default function CanvasSequenceDocsPage() {
             that adds those affordances explicitly.
           </p>
         </div>
-      </section>
+      </Section>
     </main>
   );
 }
