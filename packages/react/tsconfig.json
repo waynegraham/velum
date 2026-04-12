@@ -1,0 +1,4 @@
+{
+  "extends": "@velum/tsconfig/react-library.json",
+  "include": ["src"]
+}
