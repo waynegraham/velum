@@ -3,6 +3,7 @@
 import type { CSSProperties, ReactNode } from "react";
 
 import type { AnnotationModel, CanvasModel } from "@velum/core";
+import { AnnotationOverlay } from "./AnnotationOverlay";
 
 export interface AnnotatedCanvasProps {
   canvas: CanvasModel;
@@ -11,9 +12,11 @@ export interface AnnotatedCanvasProps {
 
 const overlayStyle: CSSProperties = {
   position: "absolute",
+  inset: 0,
   border: "2px solid currentColor",
   boxSizing: "border-box",
-  color: "#d92d20"
+  color: "#d92d20",
+  pointerEvents: "none"
 };
 
 const labelStyle: CSSProperties = {
@@ -26,7 +29,8 @@ const labelStyle: CSSProperties = {
   fontSize: "0.75rem",
   lineHeight: 1.2,
   padding: "0.25rem 0.375rem",
-  whiteSpace: "nowrap"
+  whiteSpace: "nowrap",
+  pointerEvents: "auto"
 };
 
 export function AnnotatedCanvas({
@@ -34,6 +38,16 @@ export function AnnotatedCanvas({
   renderAnnotation
 }: AnnotatedCanvasProps) {
   const image = canvas.items[0];
+
+  const defaultRenderAnnotation = (annotation: AnnotationModel) => {
+    return (
+      <div style={overlayStyle}>
+        {annotation.label ? (
+          <span style={labelStyle}>{annotation.label}</span>
+        ) : null}
+      </div>
+    );
+  };
 
   return (
     <figure style={{ margin: 0 }}>
@@ -52,30 +66,10 @@ export function AnnotatedCanvas({
             alt={canvas.label ?? ""}
             style={{ width: "100%", height: "auto", display: "block" }}
           />
-          <div style={{ position: "absolute", inset: 0 }}>
-            {canvas.annotations.map((annotation) => {
-              const { region, label, id } = annotation;
-              if (!region) return null;
-
-              return (
-                <div
-                  key={id}
-                  style={{
-                    ...overlayStyle,
-                    left: region.left,
-                    top: region.top,
-                    width: region.width,
-                    height: region.height
-                  }}
-                >
-                  {renderAnnotation ? renderAnnotation(annotation) : null}
-                  {!renderAnnotation && label ? (
-                    <span style={labelStyle}>{label}</span>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
+          <AnnotationOverlay
+            annotations={canvas.annotations}
+            renderAnnotation={renderAnnotation ?? defaultRenderAnnotation}
+          />
         </div>
       ) : null}
       {canvas.label ? (
