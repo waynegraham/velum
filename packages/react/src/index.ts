@@ -5,3 +5,4 @@ export * from "./components/CanvasSequence";
 export * from "./components/ManifestImage";
 export * from "./components/CanvasImage";
 export * from "./components/Section";
+export * from "./components/layout/ReadingColumn";
