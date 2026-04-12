@@ -21,6 +21,11 @@ const navItems = [
     label: "Templates",
     match: (pathname: string) => pathname.startsWith("/scroll-story"),
   },
+  {
+    href: "/design-system",
+    label: "Design System",
+    match: (pathname: string) => pathname.startsWith("/design-system"),
+  },
 ] as const;
 
 function cx(...classNames: Array<string | false | null | undefined>) {
