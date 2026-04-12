@@ -40,9 +40,9 @@ export default function RootLayout({
       lang="en"
       className={`${displayFont.variable} ${sansFont.variable} ${monoFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="docs-shell">
         <Navbar />
-        {children}
+        <div className="docs-main">{children}</div>
         <Footer />
       </body>
     </html>

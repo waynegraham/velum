@@ -4,7 +4,7 @@
   top: 0;
   z-index: 40;
   background: transparent;
-  padding-top: 0.4rem;
+  padding-top: var(--chrome-offset);
 }
 
 .inner {
@@ -49,9 +49,9 @@
 .brand {
   color: var(--foreground);
   font-family: var(--font-display-family), serif;
-  font-size: clamp(1.65rem, 1.45rem + 0.78vw, 2.2rem);
+  font-size: clamp(1.62rem, 1.42rem + 0.76vw, 2.12rem);
   font-weight: 400;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.05em;
   line-height: 0.94;
   text-decoration: none;
   white-space: nowrap;
@@ -77,9 +77,9 @@
   background: transparent;
   color: color-mix(in srgb, var(--foreground) 74%, var(--background) 26%);
   font-family: var(--font-sans-family), sans-serif;
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   line-height: 1;
   text-transform: uppercase;
   cursor: pointer;
@@ -96,9 +96,9 @@
 .link {
   position: relative;
   color: color-mix(in srgb, var(--foreground) 66%, var(--background) 34%);
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
@@ -148,7 +148,7 @@
 
 @media (max-width: 720px) {
   .root {
-    padding-top: 0;
+    padding-top: calc(var(--chrome-offset) * 0.5);
   }
 
   .inner {
