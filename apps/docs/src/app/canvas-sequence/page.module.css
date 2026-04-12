@@ -1,9 +1,9 @@
 .page {
-  padding-block: var(--space-section-sm) var(--space-section-lg);
+  padding-block: var(--space-section-md) var(--space-section-xl);
 }
 
 .header {
-  padding-bottom: clamp(2rem, 4vw, 3rem);
+  padding-bottom: clamp(2.75rem, 5vw, 4rem);
   border-top: 1px solid var(--line-subtle);
 }
 
@@ -25,24 +25,24 @@
 .metaRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.6rem 1.25rem;
 }
 
 .metaPill {
-  padding: 0.45rem 0.75rem;
-  border: 1px solid var(--line-subtle);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--surface) 70%, white 30%);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--text-muted);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .demoSection {
   display: grid;
-  gap: 1.75rem;
+  gap: clamp(2.25rem, 4vw, 3rem);
 }
 
 .demoIntro {
@@ -58,12 +58,8 @@
 }
 
 .demoFrame {
-  padding: clamp(1.35rem, 2.5vw, 2rem);
-  border: 1px solid var(--line-strong);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.16)),
-    color-mix(in srgb, var(--surface) 72%, white 28%);
-  box-shadow: 0 24px 60px rgba(23, 23, 23, 0.08);
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0 0;
+  border-top: 1px solid var(--line-subtle);
 }
 
 .demoChrome {
@@ -71,9 +67,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1.25rem 2.5rem;
-  padding-bottom: 1.25rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--line-subtle);
+  padding-inline: clamp(0.25rem, 1vw, 0.75rem);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .demoManifest {
@@ -91,13 +87,13 @@
 }
 
 .supportSection {
-  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding-top: clamp(2.5rem, 5vw, 3.75rem);
 }
 
 .supportGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(1.5rem, 3vw, 2.25rem);
+  gap: clamp(2rem, 4vw, 3rem);
   align-items: start;
 }
 
@@ -112,7 +108,7 @@
 
 .noteList {
   display: grid;
-  gap: 1.1rem;
+  gap: 1.25rem;
 }
 
 .noteList code {
@@ -135,7 +131,7 @@
 
 @media (max-width: 640px) {
   .demoFrame {
-    padding: 1rem;
+    padding-top: 1.5rem;
   }
 
   .metaRow {

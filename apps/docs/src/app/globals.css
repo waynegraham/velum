@@ -421,8 +421,8 @@ pre {
 
 .docs-panel {
   border: 1px solid var(--line-subtle);
-  background: var(--surface-raised);
-  padding: clamp(1.35rem, 2.5vw, 2rem);
+  background: color-mix(in srgb, var(--background) 86%, var(--surface) 14%);
+  padding: clamp(1.5rem, 2.8vw, 2.25rem);
 }
 
 .reading-width-tight {
@@ -573,7 +573,7 @@ pre {
   overflow-x: auto;
   padding: 1.15rem 1.25rem;
   border: 1px solid var(--line-subtle);
-  background: var(--code-block-bg);
+  background: color-mix(in srgb, var(--background) 84%, var(--surface) 16%);
   font-size: 0.92rem;
   line-height: 1.68;
 }
