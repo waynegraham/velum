@@ -13,7 +13,7 @@ export function DeliberationSection() {
   return (
     <TransitionSection marker="Deliberate engagement" space="xl" tone="base">
       <div className={styles.deliberation}>
-        <MotionBlock reveal={{ distance: 16, duration: 0.56 }}>
+        <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
           <div className={styles.deliberationIntro}>
             <p className={styles.sectionMarker}>A slower interaction</p>
             <p className={styles.deliberationText}>
@@ -26,7 +26,7 @@ export function DeliberationSection() {
 
         <MotionBlock
           className={styles.deliberationList}
-          reveal={{ delay: 0.08, distance: 14, duration: 0.56, start: "top 92%" }}
+          reveal={{ delay: 0.08, distance: 8, duration: 0.74, start: "top 94%" }}
         >
           {invitations.map((invitation) => (
             <p key={invitation} className={styles.deliberationLine} tabIndex={0}>

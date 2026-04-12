@@ -36,7 +36,7 @@ export function ExplorationSection() {
   return (
     <TransitionSection marker="Exploration" space="xl" tone="base">
       <div className={styles.exploration}>
-        <MotionBlock reveal={{ distance: 16, duration: 0.56 }}>
+        <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
           <div className={styles.sectionHeader}>
             <p className={styles.sectionMarker}>Components and templates</p>
             <h2 className={styles.sectionTitle}>
@@ -57,9 +57,9 @@ export function ExplorationSection() {
               className={styles.routeRow}
               reveal={{
                 delay: index * 0.04,
-                distance: 14,
-                duration: 0.48,
-                start: "top 92%",
+                distance: 8,
+                duration: 0.68,
+                start: "top 94%",
               }}
             >
               <p className={styles.routeLabel}>{route.label}</p>

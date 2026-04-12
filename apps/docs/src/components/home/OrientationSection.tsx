@@ -6,7 +6,7 @@ import styles from "./homepage.module.css";
 export function OrientationSection() {
   return (
     <TransitionSection marker="Orientation" space="xl" tone="base">
-      <MotionBlock reveal={{ distance: 16, duration: 0.54 }}>
+      <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
         <div className={styles.orientationBlock}>
           <p className={styles.sectionMarker}>What Velum is</p>
           <p className={styles.orientationText}>

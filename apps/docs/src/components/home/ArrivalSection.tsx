@@ -33,14 +33,14 @@ export function ArrivalSection({
     <Section className={styles.arrival} space="hero">
       <MotionBlock
         className={styles.heroStage}
-        reveal={{ distance: 14, duration: 0.68, start: "top 96%" }}
+        reveal={{ distance: 8, duration: 0.82, start: "top 97%" }}
       >
         {heroImage ? (
           <MotionBlock
             as="figure"
             className={styles.heroFigure}
-            reveal={{ delay: 0.04, distance: 12, duration: 0.7, start: "top 96%" }}
-            parallax={{ distance: 6 }}
+            reveal={{ delay: 0.04, distance: 8, duration: 0.86, start: "top 97%" }}
+            parallax={{ distance: 3 }}
           >
             <div className={styles.heroArtwork}>
               <img
@@ -61,7 +61,7 @@ export function ArrivalSection({
 
         <MotionBlock
           className={styles.heroOverlay}
-          reveal={{ delay: 0.12, distance: 10, duration: 0.58, start: "top 96%" }}
+          reveal={{ delay: 0.14, distance: 6, duration: 0.78, start: "top 97%" }}
         >
           <h1 className={styles.heroTitle}>Velum</h1>
           <p className={styles.heroText}>
@@ -71,7 +71,7 @@ export function ArrivalSection({
 
         <MotionBlock
           className={styles.heroCaption}
-          reveal={{ delay: 0.18, distance: 8, duration: 0.52, start: "top 96%" }}
+          reveal={{ delay: 0.2, distance: 4, duration: 0.76, start: "top 97%" }}
         >
           <p>
             {maker ?? "Harvard Art Museums"}

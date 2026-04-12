@@ -13,7 +13,7 @@ export function ReflectionSection({ manifestUrl }: ReflectionSectionProps) {
   return (
     <TransitionSection marker="Reflection" space="xl" tone="surface">
       <div className={styles.reflection}>
-        <MotionBlock reveal={{ distance: 16, duration: 0.56 }}>
+        <MotionBlock reveal={{ distance: 8, duration: 0.74, start: "top 94%" }}>
           <div className={styles.sectionHeader}>
             <p className={styles.sectionMarker}>Closing section</p>
             <h2 className={styles.reflectionTitle}>
@@ -29,7 +29,7 @@ export function ReflectionSection({ manifestUrl }: ReflectionSectionProps) {
 
         <MotionBlock
           className={styles.reflectionNote}
-          reveal={{ delay: 0.1, distance: 14, duration: 0.5, start: "top 92%" }}
+          reveal={{ delay: 0.1, distance: 8, duration: 0.72, start: "top 94%" }}
         >
           <p className={styles.metaLabel}>Continue</p>
           <p className={styles.reflectionCopy}>

@@ -23,7 +23,7 @@ export function EncounterSection({
   return (
     <TransitionSection marker="Encounter" space="xl" tone="surface">
       <div className={styles.encounter}>
-        <MotionBlock reveal={{ distance: 16, duration: 0.56 }}>
+        <MotionBlock reveal={{ distance: 10, duration: 0.72, start: "top 94%" }}>
           <div className={styles.encounterHeader}>
             <p className={styles.sectionMarker}>Encounter</p>
             <h2 className={styles.sectionTitle}>
