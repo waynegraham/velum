@@ -9,72 +9,6 @@ export interface AnnotatedCanvasProps {
   renderAnnotation?: (annotation: AnnotationModel) => ReactNode;
 }
 
-interface AnnotationRegion {
-  left: string;
-  top: string;
-  width: string;
-  height: string;
-}
-
-function formatPercent(value: number): string {
-  return `${value}%`;
-}
-
-function parseAnnotationRegion(
-  target: string,
-  canvas: CanvasModel
-): AnnotationRegion | null {
-  const fragmentIndex = target.indexOf("#");
-  if (fragmentIndex === -1) return null;
-
-  const fragment = target.slice(fragmentIndex + 1);
-  const match = /^xywh=(percent:)?([^,]+),([^,]+),([^,]+),([^,]+)$/.exec(fragment);
-  if (!match) return null;
-
-  const [, percentPrefix, rawX, rawY, rawWidth, rawHeight] = match;
-  const x = Number(rawX);
-  const y = Number(rawY);
-  const width = Number(rawWidth);
-  const height = Number(rawHeight);
-
-  if ([x, y, width, height].some((value) => Number.isNaN(value))) {
-    return null;
-  }
-
-  if (percentPrefix) {
-    return {
-      left: formatPercent(x),
-      top: formatPercent(y),
-      width: formatPercent(width),
-      height: formatPercent(height)
-    };
-  }
-
-  if (canvas.width && canvas.height) {
-    return {
-      left: formatPercent((x / canvas.width) * 100),
-      top: formatPercent((y / canvas.height) * 100),
-      width: formatPercent((width / canvas.width) * 100),
-      height: formatPercent((height / canvas.height) * 100)
-    };
-  }
-
-  return {
-    left: `${x}px`,
-    top: `${y}px`,
-    width: `${width}px`,
-    height: `${height}px`
-  };
-}
-
-function readAnnotationLabel(body: AnnotationModel["body"]): string | null {
-  if (typeof body === "string") return body;
-  if (!body || typeof body !== "object") return null;
-
-  const value = (body as Record<string, unknown>).value;
-  return typeof value === "string" ? value : null;
-}
-
 const overlayStyle: CSSProperties = {
   position: "absolute",
   border: "2px solid currentColor",
@@ -120,14 +54,12 @@ export function AnnotatedCanvas({
           />
           <div style={{ position: "absolute", inset: 0 }}>
             {canvas.annotations.map((annotation) => {
-              const region = parseAnnotationRegion(annotation.target, canvas);
+              const { region, label, id } = annotation;
               if (!region) return null;
-
-              const label = readAnnotationLabel(annotation.body);
 
               return (
                 <div
-                  key={annotation.id}
+                  key={id}
                   style={{
                     ...overlayStyle,
                     left: region.left,

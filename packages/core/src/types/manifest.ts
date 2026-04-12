@@ -13,10 +13,19 @@ export interface ImageServiceModel {
   type?: string;
 }
 
+export interface AnnotationRegion {
+  left: string;
+  top: string;
+  width: string;
+  height: string;
+}
+
 export interface AnnotationModel {
   id: string;
   target: string;
   body?: unknown;
+  label: string | null;
+  region: AnnotationRegion | null;
 }
 
 export interface ImageResourceModel {

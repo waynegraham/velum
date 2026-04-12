@@ -29,9 +29,9 @@ export function CanvasImage({
   return (
     <ManifestImage
       image={image}
-      caption={displayCaption}
-      alt={canvas.label}
-      className={className}
+      {...(displayCaption !== undefined ? { caption: displayCaption } : {})}
+      {...(canvas.label !== undefined ? { alt: canvas.label } : {})}
+      {...(className !== undefined ? { className } : {})}
     />
   );
 }

@@ -1,5 +1,6 @@
 import type {
   AnnotationModel,
+  AnnotationRegion,
   CanvasModel,
   ImageResourceModel,
   ManifestModel,
@@ -88,7 +89,67 @@ function parseImageItems(canvas: Record<string, unknown>): ImageResourceModel[] 
   });
 }
 
-function parseAnnotations(canvas: Record<string, unknown>): AnnotationModel[] {
+function formatPercent(value: number): string {
+  return `${value}%`;
+}
+
+function parseAnnotationRegion(
+  target: string,
+  canvasWidth?: number,
+  canvasHeight?: number
+): AnnotationRegion | null {
+  const fragmentIndex = target.indexOf("#");
+  if (fragmentIndex === -1) return null;
+
+  const fragment = target.slice(fragmentIndex + 1);
+  const match = /^xywh=(percent:)?([^,]+),([^,]+),([^,]+),([^,]+)$/.exec(fragment);
+  if (!match) return null;
+
+  const [, percentPrefix, rawX, rawY, rawWidth, rawHeight] = match;
+  const x = Number(rawX);
+  const y = Number(rawY);
+  const width = Number(rawWidth);
+  const height = Number(rawHeight);
+
+  if ([x, y, width, height].some((value) => Number.isNaN(value))) {
+    return null;
+  }
+
+  if (percentPrefix) {
+    return {
+      left: formatPercent(x),
+      top: formatPercent(y),
+      width: formatPercent(width),
+      height: formatPercent(height)
+    };
+  }
+
+  if (canvasWidth && canvasHeight) {
+    return {
+      left: formatPercent((x / canvasWidth) * 100),
+      top: formatPercent((y / canvasHeight) * 100),
+      width: formatPercent((width / canvasWidth) * 100),
+      height: formatPercent((height / canvasHeight) * 100)
+    };
+  }
+
+  return {
+    left: `${x}px`,
+    top: `${y}px`,
+    width: `${width}px`,
+    height: `${height}px`
+  };
+}
+
+function readAnnotationLabel(body: unknown): string | null {
+  if (typeof body === "string") return body;
+  if (!body || typeof body !== "object") return null;
+
+  const value = (body as Record<string, unknown>).value;
+  return typeof value === "string" ? value : null;
+}
+
+function parseAnnotations(canvas: Record<string, unknown>, canvasWidth?: number, canvasHeight?: number): AnnotationModel[] {
   let annotations = Array.isArray(canvas.annotations) ? canvas.annotations : [];
   
   if (annotations.length === 0 && Array.isArray(canvas.otherContent)) {
@@ -107,11 +168,16 @@ function parseAnnotations(canvas: Record<string, unknown>): AnnotationModel[] {
       const target = readResourceId(item.target || item.on);
       if (!id || !target) return [];
 
+      const region = parseAnnotationRegion(target, canvasWidth, canvasHeight);
+      const label = readAnnotationLabel(item.body);
+
       return [
         {
           id,
           target,
-          ...(item.body !== undefined ? { body: item.body } : {})
+          ...(item.body !== undefined ? { body: item.body } : {}),
+          label,
+          region
         } satisfies AnnotationModel
       ];
     });
@@ -137,7 +203,11 @@ function parseCanvases(manifest: Record<string, unknown>): CanvasModel[] {
       ...(typeof obj.width === "number" ? { width: obj.width } : {}),
       ...(typeof obj.height === "number" ? { height: obj.height } : {}),
       items: parseImageItems(obj),
-      annotations: parseAnnotations(obj)
+      annotations: parseAnnotations(
+        obj,
+        typeof obj.width === "number" ? obj.width : undefined,
+        typeof obj.height === "number" ? obj.height : undefined
+      )
     } satisfies CanvasModel;
   });
 }
