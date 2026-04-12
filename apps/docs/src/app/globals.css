@@ -1,13 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f1e8;
-  --foreground: #171717;
-  --surface: #efe8db;
-  --surface-strong: #e5dccb;
-  --text-muted: rgba(23, 23, 23, 0.72);
-  --line-subtle: rgba(23, 23, 23, 0.14);
-  --line-strong: rgba(23, 23, 23, 0.24);
+  /* Restrained neutrals keep the UI quiet so artwork carries the page. */
+  --neutral-0: #f6f6f3;
+  --neutral-50: #f0f0ec;
+  --neutral-100: #e6e5e0;
+  --neutral-200: #d8d7d1;
+  --neutral-700: #555851;
+  --neutral-900: #181a17;
+
+  /* A single muted accent is reserved for interaction and focus. */
+  --accent: #5f6f68;
+  --accent-strong: #4f5d57;
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--background) 84%);
+
+  --background: var(--neutral-0);
+  --foreground: var(--neutral-900);
+  --surface: var(--neutral-50);
+  --surface-strong: var(--neutral-100);
+  --surface-raised: color-mix(in srgb, white 42%, var(--surface) 58%);
+  --text-muted: color-mix(in srgb, var(--foreground) 70%, var(--background) 30%);
+  --text-subtle: color-mix(in srgb, var(--foreground) 56%, var(--background) 44%);
+  --line-subtle: color-mix(in srgb, var(--foreground) 12%, var(--background) 88%);
+  --line-strong: color-mix(in srgb, var(--foreground) 20%, var(--background) 80%);
+  --focus-ring: color-mix(in srgb, var(--accent) 42%, transparent 58%);
+  --selection: color-mix(in srgb, var(--accent) 18%, white 82%);
+  --code-inline-bg: color-mix(in srgb, var(--foreground) 5%, var(--background) 95%);
+  --code-block-bg: color-mix(in srgb, white 30%, var(--surface) 70%);
 
   --step--1: clamp(0.78rem, 0.76rem + 0.12vw, 0.88rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
@@ -139,9 +158,23 @@ caption {
 }
 
 a {
-  color: inherit;
+  color: var(--accent-strong);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+a:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 0.22rem;
+  border-radius: 0.15rem;
 }
 
 img {
@@ -156,7 +189,7 @@ pre {
 }
 
 ::selection {
-  background: rgba(29, 29, 29, 0.12);
+  background: var(--selection);
 }
 
 .docs-page {
@@ -176,7 +209,7 @@ pre {
 
 .docs-panel {
   border: 1px solid var(--line-subtle);
-  background: color-mix(in srgb, var(--surface) 76%, white 24%);
+  background: var(--surface-raised);
   padding: clamp(1.1rem, 2vw, 1.6rem);
 }
 
@@ -318,7 +351,7 @@ pre {
 
 .rich-text code:not(pre code) {
   padding: 0.1em 0.3em;
-  background: rgba(23, 23, 23, 0.06);
+  background: var(--code-inline-bg);
   border-radius: 0.2rem;
   font-size: 0.95em;
 }
@@ -327,7 +360,7 @@ pre {
   overflow-x: auto;
   padding: 1rem 1.1rem;
   border: 1px solid var(--line-subtle);
-  background: rgba(255, 255, 255, 0.35);
+  background: var(--code-block-bg);
   font-size: 0.92rem;
   line-height: 1.68;
 }
