@@ -31,20 +31,20 @@ export function Footer() {
           reveal={{ delay: 0.05, distance: 6, duration: 0.42, start: "top 94%" }}
         >
           <nav aria-label="Footer">
-          <a className={styles.link} href={githubUrl} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <Link className={styles.link} href="/">
-            Docs
-          </Link>
-          <a
-            className={styles.link}
-            href={iiifReferenceUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            IIIF Reference
-          </a>
+            <a className={styles.link} href={githubUrl} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <Link className={styles.link} href="/">
+              Docs
+            </Link>
+            <a
+              className={styles.link}
+              href={iiifReferenceUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              IIIF Reference
+            </a>
           </nav>
         </MotionBlock>
       </div>
