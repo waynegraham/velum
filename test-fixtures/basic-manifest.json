@@ -1,0 +1,115 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://example.org/iiif/basic-manifest",
+  "type": "Manifest",
+  "label": {
+    "en": ["Basic Manifest"]
+  },
+  "summary": {
+    "en": ["A compact IIIF Presentation 3 manifest used for parser tests."]
+  },
+  "metadata": [
+    {
+      "label": {
+        "en": ["Author"]
+      },
+      "value": {
+        "en": ["Example Author"]
+      }
+    },
+    {
+      "label": {
+        "en": ["Institution"]
+      },
+      "value": {
+        "en": ["Velum Test Collection"]
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "https://example.org/iiif/canvas/1",
+      "type": "Canvas",
+      "label": {
+        "en": ["Page 1"]
+      },
+      "width": 1200,
+      "height": 1800,
+      "items": [
+        {
+          "id": "https://example.org/iiif/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://example.org/iiif/painting/1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://example.org/iiif/canvas/1",
+              "body": {
+                "id": "https://example.org/iiif/image/1/full/full/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1200,
+                "height": 1800,
+                "service": {
+                  "id": "https://example.org/iiif/image/1",
+                  "type": "ImageService3",
+                  "profile": "level2"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "id": "https://example.org/iiif/commentary/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://example.org/iiif/annotation/1",
+              "type": "Annotation",
+              "motivation": "commenting",
+              "target": "https://example.org/iiif/canvas/1#xywh=100,120,300,220",
+              "body": {
+                "type": "TextualBody",
+                "value": "Margin note",
+                "format": "text/plain"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://example.org/iiif/canvas/2",
+      "type": "Canvas",
+      "label": {
+        "en": ["Page 2"]
+      },
+      "width": 1200,
+      "height": 1800,
+      "items": [
+        {
+          "id": "https://example.org/iiif/page/2",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://example.org/iiif/painting/2",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://example.org/iiif/canvas/2",
+              "body": {
+                "id": "https://example.org/iiif/image/2/full/full/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1200,
+                "height": 1800
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

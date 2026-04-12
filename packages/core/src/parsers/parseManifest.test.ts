@@ -1,90 +1,74 @@
 import { describe, expect, it } from "vitest";
 
+import manifestFixture from "../../../../test-fixtures/basic-manifest.json";
 import { parseManifest } from "./parseManifest";
 
-describe("parseManifest annotations", () => {
-  it("extracts annotations from canvas.annotations[].items", () => {
-    const manifest = parseManifest({
-      id: "manifest-1",
-      label: { en: ["Manifest"] },
-      items: [
-        {
-          id: "canvas-1",
-          type: "Canvas",
-          annotations: [
-            {
-              id: "page-1",
-              type: "AnnotationPage",
-              items: [
-                {
-                  id: "annotation-1",
-                  type: "Annotation",
-                  target: "canvas-1#xywh=0,0,100,100",
-                  body: {
-                    type: "TextualBody",
-                    value: "Note"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    });
+describe("parseManifest", () => {
+  const manifest = parseManifest(manifestFixture);
 
-    expect(manifest.canvases[0]?.annotations).toEqual([
+  it("parses a basic manifest", () => {
+    expect(manifest).toMatchObject({
+      id: "https://example.org/iiif/basic-manifest",
+      label: "Basic Manifest",
+      summary: "A compact IIIF Presentation 3 manifest used for parser tests."
+    });
+  });
+
+  it("parses metadata", () => {
+    expect(manifest.metadata).toEqual([
       {
-        id: "annotation-1",
-        target: "canvas-1#xywh=0,0,100,100",
-        body: {
-          type: "TextualBody",
-          value: "Note"
-        }
+        label: "Author",
+        value: "Example Author"
+      },
+      {
+        label: "Institution",
+        value: "Velum Test Collection"
       }
     ]);
   });
 
-  it("accepts structured targets with ids and filters invalid annotations", () => {
-    const manifest = parseManifest({
-      id: "manifest-1",
-      label: { en: ["Manifest"] },
+  it("parses canvases", () => {
+    expect(manifest.canvases).toHaveLength(2);
+    expect(manifest.canvases[0]).toMatchObject({
+      id: "https://example.org/iiif/canvas/1",
+      label: "Page 1",
+      width: 1200,
+      height: 1800,
       items: [
         {
-          id: "canvas-1",
-          type: "Canvas",
-          annotations: [
-            {
-              id: "page-1",
-              type: "AnnotationPage",
-              items: [
-                {
-                  id: "annotation-1",
-                  target: {
-                    id: "canvas-1#xywh=10,10,50,50"
-                  }
-                },
-                {
-                  id: "",
-                  target: "canvas-1#xywh=1,1,1,1"
-                },
-                {
-                  id: "annotation-3"
-                },
-                {
-                  target: "canvas-1#xywh=2,2,2,2"
-                }
-              ]
-            }
-          ]
+          id: "https://example.org/iiif/image/1/full/full/0/default.jpg",
+          type: "Image",
+          format: "image/jpeg",
+          width: 1200,
+          height: 1800,
+          service: {
+            id: "https://example.org/iiif/image/1",
+            profile: "level2",
+            type: "ImageService3"
+          }
         }
       ]
     });
+    expect(manifest.canvases[1]).toMatchObject({
+      id: "https://example.org/iiif/canvas/2",
+      label: "Page 2",
+      width: 1200,
+      height: 1800
+    });
+  });
 
+  it("parses annotations", () => {
     expect(manifest.canvases[0]?.annotations).toEqual([
       {
-        id: "annotation-1",
-        target: "canvas-1#xywh=10,10,50,50"
+        id: "https://example.org/iiif/annotation/1",
+        target: "https://example.org/iiif/canvas/1#xywh=100,120,300,220",
+        body: {
+          type: "TextualBody",
+          value: "Margin note",
+          format: "text/plain"
+        }
       }
     ]);
+    expect(manifest.canvases[1]?.annotations).toEqual([]);
   });
 });
