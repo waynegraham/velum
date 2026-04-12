@@ -4,6 +4,7 @@ import { LenisProvider } from "@velum/adapters";
 import { useManifest } from "@velum/react";
 
 import { ArrivalSection } from "./ArrivalSection";
+import { DeliberationSection } from "./DeliberationSection";
 import { EncounterSection } from "./EncounterSection";
 import { ExplorationSection } from "./ExplorationSection";
 import { OrientationSection } from "./OrientationSection";
@@ -23,6 +24,7 @@ export function HomePageExperience() {
         <ArrivalSection {...manifestState} />
         <OrientationSection />
         <EncounterSection manifestUrl={manifestUrl} {...manifestState} />
+        <DeliberationSection />
         <ExplorationSection />
         <ReflectionSection manifestUrl={manifestUrl} />
       </main>

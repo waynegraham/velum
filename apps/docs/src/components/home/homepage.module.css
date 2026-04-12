@@ -195,6 +195,62 @@
   gap: 1rem;
 }
 
+.deliberation {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+}
+
+.deliberationIntro {
+  display: grid;
+  gap: 1rem;
+  max-width: 34rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.deliberationText {
+  max-width: 30rem;
+  margin: 0 auto;
+  color: color-mix(in srgb, var(--foreground) 76%, var(--background) 24%);
+  font-family: var(--font-display-family), serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+.deliberationList {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.deliberationLine {
+  padding-block: 0.85rem;
+  color: color-mix(in srgb, var(--foreground) 42%, var(--background) 58%);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  text-align: center;
+  border-top: 1px solid var(--line-subtle);
+  transition:
+    color 220ms ease,
+    transform 320ms ease,
+    border-color 220ms ease;
+}
+
+.deliberationLine:last-child {
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.deliberationLine:hover,
+.deliberationLine:focus-visible {
+  color: color-mix(in srgb, var(--foreground) 78%, var(--background) 22%);
+  transform: translate3d(0, -0.12rem, 0);
+  border-color: var(--line-strong);
+  outline: none;
+}
+
 .statusMessage {
   color: var(--text-muted);
   font-size: 0.84rem;
@@ -331,5 +387,11 @@
   .reflectionTitle,
   .routeTitle {
     max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deliberationLine {
+    transition: none;
   }
 }
