@@ -1,2 +1,12 @@
-export * from "./types/manifest";
-export * from "./parsers/parseManifest";
+export type {
+  AnnotationModel,
+  CanvasModel,
+  ImageResourceModel,
+  ImageServiceModel,
+  InternationalString,
+  ManifestModel,
+  MetadataEntry,
+  RangeModel
+} from "./types/manifest";
+
+export { parseManifest } from "./parsers/parseManifest";
