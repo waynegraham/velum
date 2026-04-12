@@ -1,0 +1,4 @@
+{
+  "extends": "@velum/tsconfig/base.json",
+  "include": ["src"]
+}
