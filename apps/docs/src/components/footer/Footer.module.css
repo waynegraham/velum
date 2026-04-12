@@ -63,9 +63,13 @@
 
 .links {
   justify-self: end;
+  padding-top: 0.35rem;
+  align-self: start;
+}
+
+.links nav {
   display: grid;
   gap: 1rem;
-  padding-top: 0.35rem;
   align-content: start;
 }
 

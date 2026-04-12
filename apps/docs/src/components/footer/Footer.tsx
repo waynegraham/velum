@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { MotionBlock } from "@/components/motion/MotionBlock";
+
 import styles from "./Footer.module.css";
 
 const githubUrl = "https://github.com/waynegraham/velum";
@@ -9,7 +11,10 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-        <div className={styles.description}>
+        <MotionBlock
+          className={styles.description}
+          reveal={{ distance: 8, duration: 0.44, start: "top 94%" }}
+        >
           <p className={styles.eyebrow}>Velum</p>
           <p className={styles.copy}>
             Velum frames IIIF as a reading experience: normalized manifest data,
@@ -18,9 +23,14 @@ export function Footer() {
           <p className={styles.context}>
             A system for building IIIF-driven, interactive cultural experiences.
           </p>
-        </div>
+        </MotionBlock>
 
-        <nav className={styles.links} aria-label="Footer">
+        <MotionBlock
+          as="div"
+          className={styles.links}
+          reveal={{ delay: 0.05, distance: 6, duration: 0.42, start: "top 94%" }}
+        >
+          <nav aria-label="Footer">
           <a className={styles.link} href={githubUrl} target="_blank" rel="noreferrer">
             GitHub
           </a>
@@ -35,7 +45,8 @@ export function Footer() {
           >
             IIIF Reference
           </a>
-        </nav>
+          </nav>
+        </MotionBlock>
       </div>
     </footer>
   );
