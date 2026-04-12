@@ -30,6 +30,7 @@ function cx(...classNames: Array<string | false | null | undefined>) {
 export function Navbar() {
   const pathname = usePathname();
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     let frame = 0;
@@ -63,6 +64,10 @@ export function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   const style = {
     "--nav-scroll": scrollProgress,
   } as CSSProperties;
@@ -70,16 +75,33 @@ export function Navbar() {
   return (
     <header className={cx(styles.root, scrollProgress > 0.08 && styles.scrolled)} style={style}>
       <div className={styles.inner}>
-        <Link className={styles.brand} href="/">
-          Velum
-        </Link>
+        <div className={styles.bar}>
+          <Link className={styles.brand} href="/">
+            Velum
+          </Link>
 
-        <nav aria-label="Primary" className={styles.nav}>
+          <button
+            type="button"
+            aria-controls="primary-navigation"
+            aria-expanded={isMenuOpen}
+            className={styles.menuToggle}
+            onClick={() => setIsMenuOpen((current) => !current)}
+          >
+            Menu
+          </button>
+        </div>
+
+        <nav
+          id="primary-navigation"
+          aria-label="Primary"
+          className={cx(styles.nav, isMenuOpen && styles.navOpen)}
+        >
           {navItems.map((item) => (
             <Link
               key={item.href}
               className={cx(styles.link, item.match(pathname) && styles.linkActive)}
               href={item.href}
+              onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
             </Link>
@@ -90,6 +112,7 @@ export function Navbar() {
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
+            onClick={() => setIsMenuOpen(false)}
           >
             GitHub
           </a>
