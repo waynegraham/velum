@@ -20,8 +20,7 @@
 }
 
 .eyebrow,
-.kicker,
-.sectionMarker {
+.kicker {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.72rem;
@@ -116,25 +115,6 @@
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.74rem;
-}
-
-.sectionMarkerContainer {
-  padding-block: 0;
-}
-
-.sectionMarker {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  color: var(--muted);
-}
-
-.sectionMarker::before,
-.sectionMarker::after {
-  content: "";
-  height: 1px;
-  background: var(--line);
-  flex: 1;
 }
 
 .intro {

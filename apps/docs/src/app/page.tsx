@@ -1,35 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
 
 import { LenisProvider } from "@velum/adapters";
 import { useManifest } from "@velum/react";
 
-import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
-import { Container, Section } from "@/components/layout";
+import { Section } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
+import { TransitionSection } from "@/components/motion/TransitionSection";
+import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
 
 import styles from "./page.module.css";
 
 const manifestUrl =
   "https://iiif.harvardartmuseums.org/manifests/object/299843";
 
-interface SectionMarkerProps {
-  children: ReactNode;
-}
-
 interface MetadataEntry {
   label: string;
   value: string;
-}
-
-function SectionMarker({ children }: SectionMarkerProps) {
-  return (
-    <div className={styles.sectionMarker} aria-hidden="true">
-      <span>{children}</span>
-    </div>
-  );
 }
 
 function findMetadataValue(metadata: MetadataEntry[], pattern: RegExp) {
@@ -123,13 +111,12 @@ export default function HomePage() {
           </MotionBlock>
         </Section>
 
-        <Container className={styles.sectionMarkerContainer} width="page">
-          <MotionBlock reveal={{ distance: 12, duration: 0.42 }}>
-            <SectionMarker>Preface</SectionMarker>
-          </MotionBlock>
-        </Container>
-
-        <Section className={styles.intro} space="xl">
+        <TransitionSection
+          className={styles.intro}
+          marker="Preface"
+          space="xl"
+          tone="surface"
+        >
           <MotionBlock
             className={styles.copyBlock}
             reveal={{ distance: 18, duration: 0.46 }}
@@ -152,15 +139,14 @@ export default function HomePage() {
               where the story needs them.
             </p>
           </MotionBlock>
-        </Section>
+        </TransitionSection>
 
-        <Container className={styles.sectionMarkerContainer} width="page">
-          <MotionBlock reveal={{ distance: 12, duration: 0.42 }}>
-            <SectionMarker>Featured demo</SectionMarker>
-          </MotionBlock>
-        </Container>
-
-        <Section className={styles.featureSection} space="xl">
+        <TransitionSection
+          className={styles.featureSection}
+          marker="Featured demo"
+          space="xl"
+          tone="lift"
+        >
           <div className={styles.featureHeader}>
             <MotionBlock
               className={styles.copyBlock}
@@ -206,15 +192,14 @@ export default function HomePage() {
               <NarrativeCanvasSequence canvases={featuredCanvases} />
             ) : null}
           </MotionBlock>
-        </Section>
+        </TransitionSection>
 
-        <Container className={styles.sectionMarkerContainer} width="page">
-          <MotionBlock reveal={{ distance: 12, duration: 0.42 }}>
-            <SectionMarker>Approach</SectionMarker>
-          </MotionBlock>
-        </Container>
-
-        <Section className={styles.notesSection} space="xl">
+        <TransitionSection
+          className={styles.notesSection}
+          marker="Approach"
+          space="xl"
+          tone="surface"
+        >
           <MotionBlock
             className={styles.copyBlock}
             reveal={{ distance: 18, duration: 0.46 }}
@@ -237,7 +222,7 @@ export default function HomePage() {
               but it reads closer to an exhibition leaflet than a product page.
             </p>
           </MotionBlock>
-        </Section>
+        </TransitionSection>
       </main>
     </LenisProvider>
   );

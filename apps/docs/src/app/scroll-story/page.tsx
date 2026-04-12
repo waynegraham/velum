@@ -6,8 +6,8 @@ import { LenisProvider } from "@velum/adapters";
 import { useManifest } from "@velum/react";
 
 import { ManifestScrollStory } from "@/components/demos/ManifestScrollStory";
-import { Section } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
+import { TransitionSection } from "@/components/motion/TransitionSection";
 
 import styles from "./page.module.css";
 
@@ -32,7 +32,7 @@ export default function ScrollStoryDocsPage() {
   return (
     <LenisProvider>
       <main className={styles.page}>
-        <Section as="header" className={styles.header} space="md">
+        <TransitionSection as="header" className={styles.header} space="md" tone="surface">
           <MotionBlock reveal={{ distance: 16, duration: 0.46, start: "top 92%" }}>
             <div className="stack-3">
               <p className="type-label">@velum/templates</p>
@@ -51,9 +51,14 @@ export default function ScrollStoryDocsPage() {
               </p>
             </div>
           </MotionBlock>
-        </Section>
+        </TransitionSection>
 
-        <Section className={styles.section} space="lg">
+        <TransitionSection
+          className={styles.section}
+          marker="Design intent"
+          space="lg"
+          tone="surface"
+        >
           <MotionBlock reveal={{ distance: 16, duration: 0.44 }}>
             <div className="stack-4">
               <h2 className="type-h2 reading-width-tight">Design Intent</h2>
@@ -73,9 +78,14 @@ export default function ScrollStoryDocsPage() {
               </div>
             </div>
           </MotionBlock>
-        </Section>
+        </TransitionSection>
 
-        <Section className={styles.section} space="lg">
+        <TransitionSection
+          className={styles.section}
+          marker="Example usage"
+          space="lg"
+          tone="base"
+        >
           <MotionBlock reveal={{ distance: 16, duration: 0.44 }}>
             <div className="stack-4">
               <h2 className="type-h2 reading-width-tight">Example Usage</h2>
@@ -86,9 +96,14 @@ export default function ScrollStoryDocsPage() {
               </div>
             </div>
           </MotionBlock>
-        </Section>
+        </TransitionSection>
 
-        <Section className={styles.section} space="lg">
+        <TransitionSection
+          className={styles.section}
+          marker="Live demo"
+          space="lg"
+          tone="lift"
+        >
           <MotionBlock reveal={{ distance: 18, duration: 0.48, start: "top 86%" }}>
             <div className="stack-4">
               <h2 className="type-h2 reading-width-tight">Live Demo</h2>
@@ -109,9 +124,14 @@ export default function ScrollStoryDocsPage() {
               </div>
             </div>
           </MotionBlock>
-        </Section>
+        </TransitionSection>
 
-        <Section className={styles.section} space="lg">
+        <TransitionSection
+          className={styles.section}
+          marker="Accessibility"
+          space="lg"
+          tone="surface"
+        >
           <MotionBlock reveal={{ distance: 16, duration: 0.44 }}>
             <div className="stack-4">
               <h2 className="type-h2 reading-width-tight">Accessibility</h2>
@@ -128,7 +148,7 @@ export default function ScrollStoryDocsPage() {
               </div>
             </div>
           </MotionBlock>
-        </Section>
+        </TransitionSection>
       </main>
     </LenisProvider>
   );

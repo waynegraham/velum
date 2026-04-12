@@ -2,8 +2,8 @@
 
 import { useManifest } from "@velum/react";
 
-import { Section } from "@/components/layout";
 import { MotionBlock } from "@/components/motion/MotionBlock";
+import { TransitionSection } from "@/components/motion/TransitionSection";
 import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
 
 import styles from "./page.module.css";
@@ -24,119 +24,143 @@ export function Example({ manifest }: ExampleProps) {
 
 export default function CanvasSequenceDocsPage() {
   const { manifest, isLoading, error } = useManifest(manifestUrl);
+  const demoCanvases = manifest?.canvases.slice(0, 5) ?? [];
 
   return (
     <main className={styles.page}>
-      <Section as="header" className={`${styles.header} ${styles.headerSection}`} space="md">
+      <TransitionSection as="header" className={styles.header} space="hero" tone="surface">
         <MotionBlock reveal={{ distance: 16, duration: 0.46, start: "top 92%" }}>
-          <div className="stack-3">
-            <p className="type-label">@velum/react</p>
-            <h1 className="type-h1 reading-width-tight">CanvasSequence</h1>
-            <p className="type-body reading-width-wide">
-              `CanvasSequence` renders a list of IIIF canvases as a simple visual
-              sequence. It is useful when a manifest already has normalized canvas
-              data and you want a straightforward reading or browsing experience
-              without adding custom rendering logic.
+          <div className={styles.headerGrid}>
+            <div className="stack-3">
+              <p className="type-label">@velum/react</p>
+              <h1 className={`type-h1 reading-width-tight ${styles.title}`}>
+                CanvasSequence
+              </h1>
+            </div>
+
+            <div className="stack-3">
+              <p className={`type-body reading-width ${styles.description}`}>
+                A minimal IIIF image sequence for pages where the canvases should
+                stay in front and the interface should stay out of the way.
+              </p>
+              <div className={styles.metaRow}>
+                <span className={styles.metaPill}>Primitive component</span>
+                <span className={styles.metaPill}>Normalized canvases in</span>
+                <span className={styles.metaPill}>Motion optional</span>
+              </div>
+            </div>
+          </div>
+        </MotionBlock>
+      </TransitionSection>
+
+      <TransitionSection
+        className={styles.demoSection}
+        marker="Live demo"
+        space="md"
+        tone="lift"
+      >
+        <MotionBlock reveal={{ distance: 18, duration: 0.48, start: "top 90%" }}>
+          <div className={styles.demoIntro}>
+            <div className="stack-2">
+              <p className="type-label">Live rendering</p>
+              <h2 className="type-h3 reading-width-tight">See the sequence carry the page.</h2>
+            </div>
+            <p className={`type-caption reading-width ${styles.demoCaption}`}>
+              Public Harvard Art Museums manifest, first five canvases, rendered with
+              the narrative demo wrapper.
             </p>
           </div>
         </MotionBlock>
-      </Section>
 
-      <Section className={styles.section} space="lg">
-        <MotionBlock reveal={{ distance: 16, duration: 0.44 }}>
-          <div className="stack-4">
-            <h2 className="type-h2 reading-width-tight">What It Does</h2>
-            <div className="docs-panel rich-text">
-              <p className="type-body">
-                The component accepts an array of `CanvasModel` objects and renders
-                each canvas as a figure with its primary image and optional label.
-                It stays close to the normalized IIIF domain model and works well as
-                a baseline gallery, reading sequence, or story scaffold.
-              </p>
-              <p className="type-body">
-                Because it consumes normalized canvases directly, parsing should
-                happen upstream with `parseManifest` or with hooks such as
-                `useManifest`.
+        <MotionBlock
+          className={styles.demoFrame}
+          reveal={{ distance: 18, duration: 0.5, start: "top 86%" }}
+        >
+          <div className={styles.demoChrome}>
+            <div>
+              <p className="type-label">Demo source</p>
+              <p className={`type-caption ${styles.manifestLink}`}>
+                <a href={manifestUrl} target="_blank" rel="noreferrer">
+                  {manifestUrl}
+                </a>
               </p>
             </div>
-          </div>
-        </MotionBlock>
-      </Section>
 
-      <Section className={styles.section} space="lg">
+            {manifest ? (
+              <div className={styles.demoManifest}>
+                <p className="type-label">Manifest</p>
+                <p className="type-caption">{manifest.label}</p>
+              </div>
+            ) : null}
+          </div>
+
+          {isLoading ? (
+            <p className={styles.statusMessage}>Loading manifest...</p>
+          ) : null}
+
+          {error ? (
+            <p className={styles.statusMessage}>
+              Unable to load manifest: {error.message}
+            </p>
+          ) : null}
+
+          {demoCanvases.length > 0 ? (
+            <NarrativeCanvasSequence canvases={demoCanvases} />
+          ) : null}
+        </MotionBlock>
+      </TransitionSection>
+
+      <TransitionSection
+        className={styles.supportSection}
+        marker="Implementation notes"
+        space="md"
+        tone="surface"
+      >
         <MotionBlock reveal={{ distance: 16, duration: 0.44 }}>
-          <div className="stack-4">
-            <h2 className="type-h2 reading-width-tight">Example Usage</h2>
-            <div className="docs-panel">
-              <pre className="code-block">
-                <code>{exampleCode}</code>
-              </pre>
-            </div>
-          </div>
-        </MotionBlock>
-      </Section>
-
-      <Section className={styles.section} space="lg">
-        <MotionBlock reveal={{ distance: 18, duration: 0.48, start: "top 86%" }}>
-          <div className="stack-4">
-            <h2 className="type-h2 reading-width-tight">Live Demo</h2>
-            <div className={styles.demoSection}>
-              <p className="type-body reading-width-wide">
-                This demo loads a public IIIF manifest and renders the first five
-                canvases with `CanvasSequence`, then adds calmer spacing and
-                scroll-timed emphasis so the sequence reads as a paced narrative.
-              </p>
-
-              {isLoading ? <p className="type-caption">Loading manifest...</p> : null}
-              {error ? (
-                <p className="type-caption">Unable to load manifest: {error.message}</p>
-              ) : null}
-
-              {manifest ? (
-                <div className="stack-4">
-                  <MotionBlock
-                    className={styles.demoMeta}
-                    reveal={{ distance: 12, duration: 0.42, start: "top 90%" }}
-                  >
-                    <h3 className="type-h3 reading-width-tight">{manifest.label}</h3>
-                    <p className={`type-caption ${styles.manifestLink}`}>
-                      Source manifest:{" "}
-                      <a href={manifestUrl} target="_blank" rel="noreferrer">
-                        {manifestUrl}
-                      </a>
-                    </p>
-                  </MotionBlock>
-                  <NarrativeCanvasSequence canvases={manifest.canvases.slice(0, 5)} />
+          <div className={styles.supportGrid}>
+            <article className={`docs-panel ${styles.supportCard}`}>
+              <div className="stack-3">
+                <div className="stack-1">
+                  <p className="type-label">Code example</p>
+                  <h2 className="type-h4">Basic usage</h2>
                 </div>
-              ) : null}
-            </div>
-          </div>
-        </MotionBlock>
-      </Section>
+                <pre className={`code-block ${styles.codeBlock}`}>
+                  <code>{exampleCode}</code>
+                </pre>
+              </div>
+            </article>
 
-      <Section className={styles.section} space="lg">
-        <MotionBlock reveal={{ distance: 16, duration: 0.44 }}>
-          <div className="stack-4">
-            <h2 className="type-h2 reading-width-tight">Accessibility</h2>
-            <div className="docs-panel rich-text">
-              <p className="type-body">
-                `CanvasSequence` uses semantic figure and figcaption markup, which
-                helps preserve a clear reading structure for assistive technology.
-              </p>
-              <p className="type-body">
-                Image alternative text is derived from each canvas label in the
-                current implementation, so manifests should provide clear,
-                descriptive labels when the images carry important meaning.
-              </p>
-              <p className="type-body">
-                If a sequence needs richer narration, transcript content, or custom
-                focus management, compose `CanvasSequence` inside a page or template
-                that adds those affordances explicitly.
-              </p>
-            </div>
+            <article className={`docs-panel ${styles.supportCard}`}>
+              <div className="stack-3">
+                <div className="stack-1">
+                  <p className="type-label">Notes</p>
+                  <h2 className="type-h4">Accessibility and usage</h2>
+                </div>
+
+                <div className={styles.noteList}>
+                  <p className="type-body-sm">
+                    Uses semantic <code>figure</code> and <code>figcaption</code>{" "}
+                    structure for a clearer reading order.
+                  </p>
+                  <p className="type-body-sm">
+                    Parse manifests upstream with <code>parseManifest</code> or{" "}
+                    <code>useManifest</code>; pass normalized canvases into the
+                    component.
+                  </p>
+                  <p className="type-body-sm">
+                    If the images communicate meaning, ensure canvas labels are
+                    descriptive because they inform the default alternative text.
+                  </p>
+                  <p className="type-body-sm">
+                    Add adapters or templates only when you need pacing, narration,
+                    or more opinionated layout behavior.
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </MotionBlock>
-      </Section>
+      </TransitionSection>
     </main>
   );
 }
