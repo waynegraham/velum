@@ -312,6 +312,7 @@
   grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.8fr);
   gap: clamp(2rem, 6vw, 6rem);
   align-items: start;
+  padding-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
 .reflectionTitle {
@@ -329,8 +330,7 @@
 .reflectionNote {
   display: grid;
   gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line-subtle);
+  padding-top: 1.35rem;
 }
 
 .reflectionCopy {
