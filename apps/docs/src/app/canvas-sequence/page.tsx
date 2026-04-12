@@ -5,6 +5,7 @@ import { useManifest } from "@velum/react";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 import { TransitionSection } from "@/components/motion/TransitionSection";
 import { NarrativeCanvasSequence } from "@/components/demos/NarrativeCanvasSequence";
+import { CodeSnippet } from "@/components/ui/CodeSnippet";
 
 import styles from "./page.module.css";
 
@@ -124,9 +125,7 @@ export default function CanvasSequenceDocsPage() {
                   <p className="type-label">Code example</p>
                   <h2 className="type-h4">Basic usage</h2>
                 </div>
-                <pre className={`code-block ${styles.codeBlock}`}>
-                  <code>{exampleCode}</code>
-                </pre>
+                <CodeSnippet code={exampleCode} className={`code-block ${styles.codeBlock}`} />
               </div>
             </article>
 

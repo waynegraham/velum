@@ -8,6 +8,7 @@ import { useManifest } from "@velum/react";
 import { ManifestScrollStory } from "@/components/demos/ManifestScrollStory";
 import { MotionBlock } from "@/components/motion/MotionBlock";
 import { TransitionSection } from "@/components/motion/TransitionSection";
+import { CodeSnippet } from "@/components/ui/CodeSnippet";
 
 import styles from "./page.module.css";
 
@@ -90,9 +91,7 @@ export default function ScrollStoryDocsPage() {
             <div className="stack-4">
               <h2 className="type-h2 reading-width-tight">Example Usage</h2>
               <div className="docs-panel">
-                <pre className="code-block">
-                  <code>{exampleCode}</code>
-                </pre>
+                <CodeSnippet code={exampleCode} />
               </div>
             </div>
           </MotionBlock>

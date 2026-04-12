@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CodeSnippet } from "@/components/ui/CodeSnippet";
 
 export const metadata: Metadata = {
   title: "Design System",
@@ -259,15 +260,11 @@ export default function DesignSystemPage() {
         <div className="measure-grid lg:grid-cols-2">
           <div className="copy-stack">
             <h3 className="text-h3 font-serif text-ink">Page and type</h3>
-            <pre className="code-panel">
-              <code>{pageSnippet}</code>
-            </pre>
+            <CodeSnippet code={pageSnippet} className="code-panel" />
           </div>
           <div className="copy-stack">
             <h3 className="text-h3 font-serif text-ink">Media and caption</h3>
-            <pre className="code-panel">
-              <code>{mediaSnippet}</code>
-            </pre>
+            <CodeSnippet code={mediaSnippet} className="code-panel" />
           </div>
         </div>
 
