@@ -2,6 +2,8 @@
 
 import { CanvasSequence, useManifest } from "@velum/react";
 
+import styles from "./page.module.css";
+
 const manifestUrl =
   "https://iiif.harvardartmuseums.org/manifests/object/299843";
 
@@ -16,35 +18,15 @@ export function Example({ manifest }: ExampleProps) {
   return <CanvasSequence canvases={manifest.canvases.slice(0, 5)} />;
 }`;
 
-const pageStyle = {
-  maxWidth: 960,
-  margin: "0 auto",
-  padding: "3rem 1.5rem 5rem",
-};
-
-const sectionStyle = {
-  display: "grid",
-  gap: "1rem",
-  marginTop: "2.5rem",
-};
-
-const cardStyle = {
-  border: "1px solid rgba(127, 127, 127, 0.3)",
-  borderRadius: "0.75rem",
-  padding: "1.25rem",
-};
-
 export default function CanvasSequenceDocsPage() {
   const { manifest, isLoading, error } = useManifest(manifestUrl);
 
   return (
-    <main style={pageStyle}>
-      <header style={{ display: "grid", gap: "0.75rem" }}>
-        <p style={{ margin: 0, fontSize: "0.875rem", opacity: 0.7 }}>
-          @velum/react
-        </p>
-        <h1 style={{ margin: 0 }}>CanvasSequence</h1>
-        <p style={{ margin: 0, maxWidth: "70ch", lineHeight: 1.6 }}>
+    <main className="docs-page stack-5">
+      <header className={`${styles.header} docs-rule`}>
+        <p className="type-label">@velum/react</p>
+        <h1 className="type-h1 reading-width-tight">CanvasSequence</h1>
+        <p className="type-body reading-width-wide">
           `CanvasSequence` renders a list of IIIF canvases as a simple visual
           sequence. It is useful when a manifest already has normalized canvas
           data and you want a straightforward reading or browsing experience
@@ -52,16 +34,16 @@ export default function CanvasSequenceDocsPage() {
         </p>
       </header>
 
-      <section style={sectionStyle}>
-        <h2 style={{ margin: 0 }}>What It Does</h2>
-        <div style={cardStyle}>
-          <p style={{ marginTop: 0 }}>
+      <section className={`${styles.section} docs-section`}>
+        <h2 className="type-h2 reading-width-tight">What It Does</h2>
+        <div className="docs-panel rich-text">
+          <p className="type-body">
             The component accepts an array of `CanvasModel` objects and renders
             each canvas as a figure with its primary image and optional label.
             It stays close to the normalized IIIF domain model and works well as
             a baseline gallery, reading sequence, or story scaffold.
           </p>
-          <p style={{ marginBottom: 0 }}>
+          <p className="type-body">
             Because it consumes normalized canvases directly, parsing should
             happen upstream with `parseManifest` or with hooks such as
             `useManifest`.
@@ -69,39 +51,33 @@ export default function CanvasSequenceDocsPage() {
         </div>
       </section>
 
-      <section style={sectionStyle}>
-        <h2 style={{ margin: 0 }}>Example Usage</h2>
-        <div style={cardStyle}>
-          <pre
-            style={{
-              margin: 0,
-              overflowX: "auto",
-              whiteSpace: "pre-wrap",
-              fontSize: "0.925rem",
-              lineHeight: 1.6,
-            }}
-          >
+      <section className={`${styles.section} docs-section`}>
+        <h2 className="type-h2 reading-width-tight">Example Usage</h2>
+        <div className="docs-panel">
+          <pre className="code-block">
             <code>{exampleCode}</code>
           </pre>
         </div>
       </section>
 
-      <section style={sectionStyle}>
-        <h2 style={{ margin: 0 }}>Live Demo</h2>
-        <div style={cardStyle}>
-          <p style={{ marginTop: 0 }}>
+      <section className={`${styles.section} docs-section`}>
+        <h2 className="type-h2 reading-width-tight">Live Demo</h2>
+        <div className="docs-panel stack-4">
+          <p className="type-body reading-width-wide">
             This demo loads a public IIIF manifest and renders the first five
             canvases with `CanvasSequence`.
           </p>
 
-          {isLoading ? <p>Loading manifest...</p> : null}
-          {error ? <p>Unable to load manifest: {error.message}</p> : null}
+          {isLoading ? <p className="type-caption">Loading manifest...</p> : null}
+          {error ? (
+            <p className="type-caption">Unable to load manifest: {error.message}</p>
+          ) : null}
 
           {manifest ? (
-            <div style={{ display: "grid", gap: "1rem" }}>
-              <div>
-                <h3 style={{ margin: 0 }}>{manifest.label}</h3>
-                <p style={{ margin: "0.5rem 0 0", opacity: 0.8 }}>
+            <div className="stack-4">
+              <div className={styles.demoMeta}>
+                <h3 className="type-h3 reading-width-tight">{manifest.label}</h3>
+                <p className={`type-caption ${styles.manifestLink}`}>
                   Source manifest:{" "}
                   <a href={manifestUrl} target="_blank" rel="noreferrer">
                     {manifestUrl}
@@ -114,19 +90,19 @@ export default function CanvasSequenceDocsPage() {
         </div>
       </section>
 
-      <section style={sectionStyle}>
-        <h2 style={{ margin: 0 }}>Accessibility</h2>
-        <div style={cardStyle}>
-          <p style={{ marginTop: 0 }}>
+      <section className={`${styles.section} docs-section`}>
+        <h2 className="type-h2 reading-width-tight">Accessibility</h2>
+        <div className="docs-panel rich-text">
+          <p className="type-body">
             `CanvasSequence` uses semantic figure and figcaption markup, which
             helps preserve a clear reading structure for assistive technology.
           </p>
-          <p>
+          <p className="type-body">
             Image alternative text is derived from each canvas label in the
             current implementation, so manifests should provide clear,
             descriptive labels when the images carry important meaning.
           </p>
-          <p style={{ marginBottom: 0 }}>
+          <p className="type-body">
             If a sequence needs richer narration, transcript content, or custom
             focus management, compose `CanvasSequence` inside a page or template
             that adds those affordances explicitly.

@@ -1,0 +1,18 @@
+.header {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.section {
+  display: grid;
+  gap: 1rem;
+}
+
+.demoMeta {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.manifestLink {
+  word-break: break-word;
+}

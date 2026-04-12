@@ -1,26 +1,336 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f5f1e8;
   --foreground: #171717;
+  --surface: #efe8db;
+  --surface-strong: #e5dccb;
+  --text-muted: rgba(23, 23, 23, 0.72);
+  --line-subtle: rgba(23, 23, 23, 0.14);
+  --line-strong: rgba(23, 23, 23, 0.24);
+
+  --step--1: clamp(0.78rem, 0.76rem + 0.12vw, 0.88rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.42vw, 1.5rem);
+  --step-2: clamp(1.45rem, 1.25rem + 0.9vw, 2rem);
+  --step-3: clamp(1.85rem, 1.45rem + 1.7vw, 3rem);
+  --step-4: clamp(2.4rem, 1.7rem + 2.8vw, 4.4rem);
+  --step-5: clamp(3.2rem, 2.1rem + 4.4vw, 6.4rem);
+
+  --leading-tight: 0.96;
+  --leading-display: 1.04;
+  --leading-body: 1.72;
+  --leading-caption: 1.45;
+
+  --space-1: 0.4rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4.5rem;
+
+  --measure-tight: 28rem;
+  --measure: 38rem;
+  --measure-wide: 52rem;
+  --page-width: 1200px;
+  --page-gutter: 1.5rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans-family);
+  --font-mono: var(--font-mono-family);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+  text-rendering: optimizeLegibility;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+pre {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display-family), serif;
+  font-weight: 500;
+  line-height: var(--leading-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-5);
+  line-height: var(--leading-tight);
+}
+
+h2 {
+  font-size: var(--step-4);
+}
+
+h3 {
+  font-size: var(--step-3);
+}
+
+h4 {
+  font-size: var(--step-2);
+}
+
+h5 {
+  font-size: var(--step-1);
+}
+
+h6 {
+  font-size: var(--step-0);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+p,
+li,
+dd {
+  max-width: var(--measure);
+}
+
+small,
+figcaption,
+caption {
+  font-size: var(--step--1);
+  line-height: var(--leading-caption);
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+img {
+  max-width: 100%;
+}
+
+code,
+pre {
+  font-family: var(--font-mono-family), monospace;
+}
+
+::selection {
+  background: rgba(29, 29, 29, 0.12);
+}
+
+.docs-page {
+  width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
+  margin: 0 auto;
+  padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(4rem, 8vw, 6rem);
+}
+
+.docs-section {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.docs-rule {
+  padding-top: clamp(1.25rem, 2vw, 1.75rem);
+  border-top: 1px solid var(--line-subtle);
+}
+
+.docs-panel {
+  border: 1px solid var(--line-subtle);
+  background: color-mix(in srgb, var(--surface) 76%, white 24%);
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.reading-width-tight {
+  max-width: var(--measure-tight);
+}
+
+.reading-width {
+  max-width: var(--measure);
+}
+
+.reading-width-wide {
+  max-width: var(--measure-wide);
+}
+
+.type-display {
+  font-family: var(--font-display-family), serif;
+  font-size: var(--step-5);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.type-h1 {
+  font-family: var(--font-display-family), serif;
+  font-size: var(--step-4);
+  line-height: var(--leading-display);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.type-h2 {
+  font-family: var(--font-display-family), serif;
+  font-size: var(--step-3);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.type-h3 {
+  font-family: var(--font-display-family), serif;
+  font-size: var(--step-2);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.type-h4 {
+  font-family: var(--font-display-family), serif;
+  font-size: var(--step-1);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+.type-h5,
+.type-h6 {
+  font-family: var(--font-sans-family), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.type-h5 {
+  font-size: var(--step-0);
+  line-height: 1.4;
+}
+
+.type-h6 {
+  font-size: var(--step--1);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.type-lede {
+  font-family: var(--font-display-family), serif;
+  font-size: var(--step-2);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+}
+
+.type-body {
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+}
+
+.type-body-sm {
+  font-size: var(--step--1);
+  line-height: 1.68;
+}
+
+.type-caption {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  line-height: var(--leading-caption);
+  letter-spacing: 0.01em;
+}
+
+.type-label {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.stack-1 > * + * {
+  margin-top: var(--space-1);
+}
+
+.stack-2 > * + * {
+  margin-top: var(--space-2);
+}
+
+.stack-3 > * + * {
+  margin-top: var(--space-3);
+}
+
+.stack-4 > * + * {
+  margin-top: var(--space-4);
+}
+
+.stack-5 > * + * {
+  margin-top: var(--space-5);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: baseline;
+}
+
+.rich-text > * + * {
+  margin-top: 1em;
+}
+
+.rich-text code:not(pre code) {
+  padding: 0.1em 0.3em;
+  background: rgba(23, 23, 23, 0.06);
+  border-radius: 0.2rem;
+  font-size: 0.95em;
+}
+
+.code-block {
+  overflow-x: auto;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line-subtle);
+  background: rgba(255, 255, 255, 0.35);
+  font-size: 0.92rem;
+  line-height: 1.68;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-gutter: 0.75rem;
+    --leading-body: 1.66;
+    --measure: 34rem;
+    --measure-wide: 40rem;
+  }
+
+  .docs-page {
+    padding-top: 2rem;
+  }
 }
