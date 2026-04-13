@@ -1,0 +1,73 @@
+:root {
+  /* Warm neutrals keep the docs quiet and exhibition-like. */
+  --neutral-0: #f7f3ec;
+  --neutral-50: #f1ece4;
+  --neutral-100: #e7e0d7;
+  --neutral-200: #d8cfc4;
+  --neutral-700: #676056;
+  --neutral-900: #181512;
+
+  /* Interaction stays subdued: brown-gray rather than saturated brand color. */
+  --accent: #75695f;
+  --accent-strong: #665a50;
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--background) 84%);
+
+  --background: var(--neutral-0);
+  --foreground: var(--neutral-900);
+  --surface: var(--neutral-50);
+  --surface-strong: var(--neutral-100);
+  --surface-raised: color-mix(in srgb, white 42%, var(--surface) 58%);
+  --text-muted: color-mix(in srgb, var(--foreground) 70%, var(--background) 30%);
+  --text-subtle: color-mix(in srgb, var(--foreground) 56%, var(--background) 44%);
+  --line-subtle: color-mix(in srgb, var(--foreground) 12%, var(--background) 88%);
+  --line-strong: color-mix(in srgb, var(--foreground) 20%, var(--background) 80%);
+  --focus-ring: color-mix(in srgb, var(--accent) 42%, transparent 58%);
+  --selection: color-mix(in srgb, var(--accent) 18%, white 82%);
+  --code-inline-bg: color-mix(in srgb, var(--foreground) 5%, var(--background) 95%);
+  --code-block-bg: color-mix(in srgb, white 30%, var(--surface) 70%);
+
+  --step--1: clamp(0.78rem, 0.76rem + 0.12vw, 0.88rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.42vw, 1.5rem);
+  --step-2: clamp(1.45rem, 1.25rem + 0.9vw, 2rem);
+  --step-3: clamp(1.85rem, 1.45rem + 1.7vw, 3rem);
+  --step-4: clamp(2.4rem, 1.7rem + 2.8vw, 4.4rem);
+  --step-5: clamp(3.2rem, 2.1rem + 4.4vw, 6.4rem);
+
+  --leading-tight: 0.96;
+  --leading-display: 1.04;
+  --leading-body: 1.72;
+  --leading-caption: 1.45;
+
+  --space-1: 0.5rem;
+  --space-2: 0.875rem;
+  --space-3: 1.25rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+  --space-7: 6.5rem;
+  --space-8: 8.5rem;
+
+  /* Layout widths keep copy centered and let artwork breathe. */
+  --container-narrow: 28rem;
+  --container-reading: 38rem;
+  --container-content: 46rem;
+  --container-wide: 58rem;
+  --container-page: 1200px;
+  --page-gutter: 1.5rem;
+  --chrome-offset: clamp(1.1rem, 2vw, 1.6rem);
+  --chrome-gap: clamp(3.5rem, 7vw, 6rem);
+
+  /* Section spacing defines vertical rhythm between major page beats. */
+  --space-section-sm: clamp(3.25rem, 5vw, 4.25rem);
+  --space-section-md: clamp(4.25rem, 7vw, 5.75rem);
+  --space-section-lg: clamp(5.75rem, 10vw, 8.25rem);
+  --space-section-xl: clamp(7.5rem, 13vw, 10.5rem);
+  --space-section-hero: clamp(3.5rem, 7vw, 5.5rem);
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-gentle: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+}

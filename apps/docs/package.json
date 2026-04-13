@@ -12,6 +12,7 @@
     "@velum/adapters": "workspace:*",
     "@velum/core": "workspace:*",
     "@velum/react": "workspace:*",
+    "@velum/styles": "workspace:*",
     "@velum/templates": "workspace:*",
     "next": "16.2.3",
     "prism-react-renderer": "^2.4.1",

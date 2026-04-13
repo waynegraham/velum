@@ -1,0 +1,13 @@
+{
+  "name": "@velum/styles",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Core design tokens and base styles for the Velum system",
+  "exports": {
+    ".": "./src/index.css"
+  },
+  "files": [
+    "src"
+  ],
+  "license": "MIT"
+}
