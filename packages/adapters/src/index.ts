@@ -1,11 +1,13 @@
 export { LenisProvider } from "./lenis/LenisProvider";
 export { useParallaxMotion } from "./motion/useParallaxMotion";
+export { ParallaxMedia } from "./motion/ParallaxMedia";
 export { usePrefersReducedMotion } from "./motion/usePrefersReducedMotion";
 export { useRevealMotion } from "./motion/useRevealMotion";
 export { RevealOnView } from "./motion/RevealOnView";
 export { useScrollScene } from "./scroll/useScrollScene";
 export { ScrollScene } from "./scroll/ScrollScene";
 export type { UseParallaxMotionOptions } from "./motion/useParallaxMotion";
+export type { ParallaxMediaProps } from "./motion/ParallaxMedia";
 export type { UseRevealMotionOptions } from "./motion/useRevealMotion";
 export type { RevealOnViewProps } from "./motion/RevealOnView";
 export type { UseScrollSceneOptions } from "./scroll/useScrollScene";
