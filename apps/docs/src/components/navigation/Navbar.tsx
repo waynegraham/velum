@@ -13,8 +13,13 @@ const navItems = [
   { href: "/", label: "Docs", match: (pathname: string) => pathname === "/" },
   {
     href: "/canvas-sequence",
-    label: "Components",
+    label: "Sequence",
     match: (pathname: string) => pathname.startsWith("/canvas-sequence"),
+  },
+  {
+    href: "/annotated-canvas",
+    label: "Annotated",
+    match: (pathname: string) => pathname.startsWith("/annotated-canvas"),
   },
   {
     href: "/scroll-story",
@@ -23,7 +28,7 @@ const navItems = [
   },
   {
     href: "/design-system",
-    label: "Design System",
+    label: "Design",
     match: (pathname: string) => pathname.startsWith("/design-system"),
   },
 ] as const;

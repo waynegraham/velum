@@ -1,0 +1,149 @@
+.page {
+  padding-block: var(--space-section-md) var(--space-section-xl);
+}
+
+.header {
+  padding-bottom: clamp(2.75rem, 5vw, 4rem);
+  border-top: 1px solid var(--line-subtle);
+}
+
+.headerGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 5vw, 3.75rem);
+  align-items: end;
+}
+
+.title {
+  max-width: 12ch;
+}
+
+.description {
+  max-width: 34rem;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+}
+
+.metaPill {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.demoSection {
+  display: grid;
+  gap: clamp(2.25rem, 4vw, 3rem);
+}
+
+.demoIntro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  align-items: end;
+}
+
+.demoCaption {
+  max-width: 28rem;
+}
+
+.demoFrame {
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0 0;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.demoChrome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem 2.5rem;
+  padding-inline: clamp(0.25rem, 1vw, 0.75rem);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.demoManifest {
+  text-align: right;
+}
+
+.manifestLink {
+  word-break: break-word;
+}
+
+.statusMessage {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  line-height: var(--leading-caption);
+}
+
+.canvasWrapper {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.supportSection {
+  padding-top: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.supportGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.supportCard {
+  height: 100%;
+}
+
+.codeBlock {
+  margin: 0;
+  min-height: 100%;
+}
+
+.noteList {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.noteList code {
+  padding: 0.1em 0.3em;
+  background: rgba(23, 23, 23, 0.06);
+  border-radius: 0.2rem;
+  font-size: 0.95em;
+}
+
+@media (max-width: 900px) {
+  .headerGrid,
+  .supportGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .demoManifest {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .demoFrame {
+    padding-top: 1.5rem;
+  }
+
+  .metaRow {
+    gap: 0.75rem;
+  }
+
+  .metaPill {
+    font-size: 0.7rem;
+  }
+}
