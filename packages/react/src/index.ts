@@ -3,6 +3,7 @@ export * from "./hooks/useCanvas";
 export * from "./components/AnnotationOverlay";
 export * from "./components/AnnotatedCanvas";
 export * from "./components/CanvasSection";
+export * from "./components/ManifestHeader";
 export * from "./components/RangeNavigator";
 export * from "./components/CanvasSequence";
 export * from "./components/ManifestImage";
