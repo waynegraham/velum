@@ -26,6 +26,13 @@
   --code-inline-bg: color-mix(in srgb, var(--foreground) 5%, var(--background) 95%);
   --code-block-bg: color-mix(in srgb, white 30%, var(--surface) 70%);
 
+  /* Translucent neutrals for gradients and overlays */
+  --neutral-black-2: color-mix(in srgb, var(--neutral-900) 2%, transparent);
+  --neutral-black-5: color-mix(in srgb, var(--neutral-900) 5%, transparent);
+  --neutral-white-15: color-mix(in srgb, white 15%, transparent);
+  --neutral-white-20: color-mix(in srgb, white 20%, transparent);
+  --neutral-white-40: color-mix(in srgb, white 40%, transparent);
+
   --step--1: clamp(0.78rem, 0.76rem + 0.12vw, 0.88rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
   --step-1: clamp(1.2rem, 1.1rem + 0.42vw, 1.5rem);

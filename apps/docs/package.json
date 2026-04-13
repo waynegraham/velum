@@ -2,12 +2,13 @@
   "name": "docs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "lint:styles": "stylelint '**/*.css'",
+    "lint:styles": "stylelint \"**/*.css\"",
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots"
   },

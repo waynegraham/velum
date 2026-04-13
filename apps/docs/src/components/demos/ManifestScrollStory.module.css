@@ -5,11 +5,11 @@
 .section {
   --story-progress: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.75fr) minmax(15rem, 0.72fr);
-  gap: clamp(3.5rem, 8vw, 8rem);
+  grid-template-columns: minmax(0, 1.75fr) minmax(var(--container-narrow), 0.72fr);
+  gap: var(--space-section-sm);
   align-items: start;
   min-height: 100svh;
-  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  padding: var(--space-section-md) 0;
   border-top: 1px solid var(--line-subtle);
 }
 
@@ -23,7 +23,7 @@
 
 .section :global(figure) {
   position: relative;
-  max-width: min(100%, 64rem);
+  max-width: min(100%, var(--container-wide));
   margin: 0 auto;
   transform: translate3d(
     0,
@@ -44,11 +44,11 @@
 }
 
 .section :global(figcaption) {
-  max-width: 18rem;
-  margin-top: clamp(1rem, 2vw, 1.5rem);
-  color: color-mix(in srgb, var(--foreground) 46%, var(--background) 54%);
-  font-size: 0.72rem;
-  line-height: 1.6;
+  max-width: var(--container-narrow);
+  margin-top: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  line-height: var(--leading-caption);
 }
 
 .panel {
@@ -74,7 +74,7 @@
 
 .summary,
 .note {
-  max-width: 22rem;
+  max-width: var(--container-narrow);
 }
 
 .note {
@@ -83,22 +83,22 @@
 
 .meta {
   display: grid;
-  gap: 1rem;
+  gap: var(--space-3);
   padding-top: var(--space-3);
-  border-top: 1px solid color-mix(in srgb, var(--line-subtle) 75%, transparent 25%);
+  border-top: 1px solid var(--line-subtle);
 }
 
 .meta div {
   display: grid;
-  gap: 0.15rem;
+  gap: 2px;
 }
 
 .meta dt {
   color: var(--text-muted);
-  font-size: 0.72rem;
+  font-size: var(--step--1);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tracking-label, 0.14em);
 }
 
 .meta dd {

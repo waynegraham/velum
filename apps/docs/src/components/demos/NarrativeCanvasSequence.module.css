@@ -1,5 +1,5 @@
 .sequence {
-  --sequence-measure: min(100%, 64rem);
+  --sequence-measure: min(100%, var(--container-wide));
 }
 
 .group {
@@ -9,7 +9,7 @@
 .figure {
   width: min(var(--sequence-measure), 100%);
   margin: 0 auto;
-  padding-block: clamp(5rem, 12vw, 8.5rem) clamp(7rem, 15vw, 11.5rem);
+  padding-block: var(--space-section-lg) var(--space-section-xl);
   opacity: 0.34;
   transform: translate3d(0, 1rem, 0);
   transition:
@@ -24,15 +24,15 @@
 }
 
 .group:nth-child(3n + 1) .figure {
-  width: min(100%, 58rem);
+  width: min(100%, var(--container-wide));
 }
 
 .group:nth-child(3n + 2) .figure {
-  width: min(100%, 48rem);
+  width: min(100%, var(--container-content));
 }
 
 .group:nth-child(3n) .figure {
-  width: min(100%, 54rem);
+  width: min(100%, 54rem); /* Kept as intermediate width for rhythm */
 }
 
 .image {
@@ -43,23 +43,23 @@
 }
 
 .caption {
-  max-width: 20rem;
-  margin-top: clamp(1.15rem, 2.2vw, 1.8rem);
-  color: color-mix(in srgb, var(--foreground) 46%, var(--background) 54%);
-  font-size: 0.72rem;
-  line-height: 1.6;
+  max-width: var(--container-narrow);
+  margin-top: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  line-height: var(--leading-caption);
   text-align: center;
   margin-inline: auto;
 }
 
 .interlude {
-  width: min(100%, 24rem);
+  width: min(100%, var(--container-narrow));
   margin: 0 auto;
-  padding-bottom: clamp(2rem, 5vw, 4rem);
-  color: color-mix(in srgb, var(--foreground) 66%, var(--background) 34%);
+  padding-bottom: var(--space-5);
+  color: var(--text-subtle);
   font-family: var(--font-display-family), serif;
-  font-size: clamp(1rem, 1.3vw, 1.2rem);
-  line-height: 1.38;
+  font-size: var(--step-0);
+  line-height: var(--leading-tight);
   text-align: center;
   opacity: 0.28;
   transform: translate3d(0, 0.75rem, 0);
@@ -76,12 +76,12 @@
 
   .figure {
     width: 100%;
-    padding-block: clamp(3.5rem, 10vw, 5rem) clamp(4.75rem, 13vw, 7rem);
+    padding-block: var(--space-section-md) var(--space-section-lg);
   }
 
   .interlude {
-    width: min(100%, 20rem);
-    padding-bottom: clamp(1.5rem, 5vw, 2.75rem);
+    width: min(100%, var(--container-narrow));
+    padding-bottom: var(--space-4);
   }
 }
 

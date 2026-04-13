@@ -1,5 +1,5 @@
 .markerContainer {
-  padding-block: clamp(0.5rem, 1vw, 1rem) 0;
+  padding-block: var(--space-2) 0;
 }
 
 .marker {
@@ -7,9 +7,9 @@
   width: fit-content;
   margin-inline: auto;
   color: var(--text-muted);
-  font-size: 0.72rem;
+  font-size: var(--step--1);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tracking-label, 0.18em);
   text-transform: uppercase;
   opacity: 0.62;
 }
@@ -17,9 +17,7 @@
 .transitionSection {
   position: relative;
   isolation: isolate;
-  padding-block:
-    calc(var(--section-space) + clamp(1.6rem, 3vw, 2.4rem))
-    calc(var(--section-space) + clamp(1rem, 2vw, 1.5rem));
+  padding-block: var(--space-section-lg) var(--space-section-md);
 }
 
 .transitionSection::before {
@@ -27,16 +25,16 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: clamp(1rem, 2vw, 1.5rem);
-  height: min(18rem, 26vw);
-  border-radius: clamp(1.5rem, 4vw, 3rem);
+  top: var(--space-section-sm);
+  height: clamp(12rem, 20vw, 18rem);
+  border-radius: var(--container-reading);
   background:
     radial-gradient(
       70% 120% at 50% 0%,
-      rgba(255, 255, 255, 0.42),
-      rgba(255, 255, 255, 0) 72%
+      var(--neutral-white-40),
+      transparent 72%
     ),
-    linear-gradient(180deg, rgba(23, 23, 23, 0.018), rgba(23, 23, 23, 0));
+    linear-gradient(180deg, var(--neutral-black-2), transparent);
   opacity: 0.44;
   pointer-events: none;
   z-index: -1;
@@ -47,13 +45,13 @@
   content: "";
   position: absolute;
   left: 50%;
-  bottom: clamp(-2rem, -3vw, -1rem);
-  width: min(78vw, 52rem);
-  height: clamp(3rem, 8vw, 5rem);
+  bottom: calc(var(--space-2) * -1);
+  width: min(78vw, var(--container-wide));
+  height: var(--space-4);
   transform: translateX(-50%);
   background: radial-gradient(
     50% 100% at 50% 0%,
-    color-mix(in srgb, var(--surface) 12%, transparent 88%),
+    var(--neutral-black-5),
     transparent 72%
   );
   opacity: 0.3;
@@ -69,44 +67,42 @@
   background:
     radial-gradient(
       70% 120% at 50% 0%,
-      rgba(255, 255, 255, 0.32),
-      rgba(255, 255, 255, 0) 72%
+      var(--neutral-white-20),
+      transparent 72%
     ),
-    linear-gradient(180deg, rgba(23, 23, 23, 0.016), rgba(23, 23, 23, 0));
+    linear-gradient(180deg, var(--neutral-black-2), transparent);
 }
 
 .toneSurface::before {
   background:
     radial-gradient(
       72% 120% at 50% 0%,
-      rgba(255, 255, 255, 0.46),
-      rgba(255, 255, 255, 0) 72%
+      var(--neutral-white-40),
+      transparent 72%
     ),
-    linear-gradient(180deg, color-mix(in srgb, var(--surface) 34%, transparent 66%), transparent);
+    linear-gradient(180deg, var(--neutral-black-5), transparent);
 }
 
 .toneLift::before {
   background:
     radial-gradient(
       72% 120% at 50% 0%,
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0) 72%
+      var(--neutral-white-40),
+      transparent 72%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--surface-strong) 28%, transparent 72%),
+      var(--neutral-black-5),
       transparent
     );
 }
 
 @media (max-width: 640px) {
   .transitionSection {
-    padding-block:
-      calc(var(--section-space) + 1.15rem)
-      calc(var(--section-space) + 0.8rem);
+    padding-block: var(--space-section-md) var(--space-section-sm);
   }
 
   .transitionSection::after {
-    width: min(90vw, 30rem);
+    width: min(90vw, var(--container-content));
   }
 }

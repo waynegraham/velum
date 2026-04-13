@@ -19,13 +19,13 @@
 }
 
 .description {
-  max-width: 34rem;
+  max-width: var(--container-reading);
 }
 
 .metaRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem 1.25rem;
+  gap: var(--space-2) var(--space-3);
 }
 
 .metaPill {
@@ -34,9 +34,9 @@
   border-radius: 0;
   background: transparent;
   color: var(--text-muted);
-  font-size: 0.72rem;
+  font-size: var(--step--1);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tracking-label, 0.18em);
   text-transform: uppercase;
 }
 
@@ -49,12 +49,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1.5rem 2.5rem;
+  gap: var(--space-3) var(--space-4);
   align-items: end;
 }
 
 .demoCaption {
-  max-width: 28rem;
+  max-width: var(--container-narrow);
 }
 
 .demoFrame {
@@ -66,10 +66,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1.25rem 2.5rem;
-  padding-inline: clamp(0.25rem, 1vw, 0.75rem);
-  padding-bottom: 1.5rem;
-  margin-bottom: 1rem;
+  gap: var(--space-3) var(--space-4);
+  padding-inline: var(--space-1);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .demoManifest {
@@ -87,7 +87,7 @@
 }
 
 .canvasWrapper {
-  max-width: 60rem;
+  max-width: var(--container-wide);
   margin: 0 auto;
 }
 
@@ -113,12 +113,12 @@
 
 .noteList {
   display: grid;
-  gap: 1.25rem;
+  gap: var(--space-3);
 }
 
 .noteList code {
   padding: 0.1em 0.3em;
-  background: rgba(23, 23, 23, 0.06);
+  background: var(--neutral-black-5);
   border-radius: 0.2rem;
   font-size: 0.95em;
 }
@@ -136,14 +136,14 @@
 
 @media (max-width: 640px) {
   .demoFrame {
-    padding-top: 1.5rem;
+    padding-top: var(--space-3);
   }
 
   .metaRow {
-    gap: 0.75rem;
+    gap: var(--space-2);
   }
 
   .metaPill {
-    font-size: 0.7rem;
+    font-size: var(--step--1);
   }
 }
