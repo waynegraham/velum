@@ -33,15 +33,13 @@ export default function AnnotatedCanvasDocsPage() {
       <TransitionSection as="header" className={styles.header} space="hero" tone="surface">
         <MotionBlock reveal={{ distance: 16, duration: 0.58, start: "top 90%" }}>
           <div className={styles.headerGrid}>
-            <div className={styles.headerIntro}>
-              <p className="type-label">@velum/react</p>
-              <h1 className={`type-h1 reading-width-tight ${styles.title}`}>
-                AnnotatedCanvas
-              </h1>
+            <div className={`copy-stack ${styles.headerIntro}`}>
+              <p className="text-label">@velum/react</p>
+              <h1 className={`text-h1 reading-column-tight ${styles.title}`}>AnnotatedCanvas</h1>
             </div>
 
-            <div className={styles.headerMeta}>
-              <p className={`type-body reading-width ${styles.description}`}>
+            <div className={`copy-stack ${styles.headerMeta}`}>
+              <p className={`text-body reading-column ${styles.description}`}>
                 A focused canvas view that supports drawing annotations (regions of interest, 
                 labels, or highlights) directly over the image.
               </p>
@@ -63,11 +61,11 @@ export default function AnnotatedCanvasDocsPage() {
       >
         <MotionBlock reveal={{ distance: 18, duration: 0.6, start: "top 88%" }}>
           <div className={styles.demoIntro}>
-            <div className="stack-2">
-              <p className="type-label">Interactive viewport</p>
-              <h2 className="type-h3 reading-width-tight">Spatial metadata in context.</h2>
+            <div className="copy-stack">
+              <p className="text-label">Interactive viewport</p>
+              <h2 className="text-h3 reading-column-tight">Spatial metadata in context.</h2>
             </div>
-            <p className={`type-caption reading-width ${styles.demoCaption}`}>
+            <p className={`text-caption reading-column ${styles.demoCaption}`}>
               Rendering a single canvas with its native annotations. If the manifest 
               contains <code>Rect</code> or <code>Point</code> annotations, they will 
               appear as overlays.
@@ -81,8 +79,8 @@ export default function AnnotatedCanvasDocsPage() {
         >
           <div className={styles.demoChrome}>
             <div>
-              <p className="type-label">Demo source</p>
-              <p className={`type-caption ${styles.manifestLink}`}>
+              <p className="text-label">Demo source</p>
+              <p className={`text-caption ${styles.manifestLink}`}>
                 <a href={manifestUrl} target="_blank" rel="noreferrer">
                   {manifestUrl}
                 </a>
@@ -91,8 +89,8 @@ export default function AnnotatedCanvasDocsPage() {
 
             {manifest ? (
               <div className={styles.demoManifest}>
-                <p className="type-label">Manifest</p>
-                <p className="type-caption">{manifest.label}</p>
+                <p className="text-label">Manifest</p>
+                <p className="text-caption">{manifest.label}</p>
               </div>
             ) : null}
           </div>
@@ -123,33 +121,33 @@ export default function AnnotatedCanvasDocsPage() {
       >
         <MotionBlock reveal={{ distance: 16, duration: 0.54 }}>
           <div className={styles.supportGrid}>
-            <article className={`docs-panel ${styles.supportCard}`}>
-              <div className="stack-3">
-                <div className="stack-1">
-                  <p className="type-label">Code example</p>
-                  <h2 className="type-h4">Basic usage</h2>
+            <article className={styles.supportCard}>
+              <div className="copy-stack">
+                <div className="copy-stack">
+                  <p className="text-label">Code example</p>
+                  <h2 className="text-h4">Basic usage</h2>
                 </div>
                 <CodeSnippet code={exampleCode} className={`code-block ${styles.codeBlock}`} />
               </div>
             </article>
 
-            <article className={`docs-panel ${styles.supportCard}`}>
-              <div className="stack-3">
-                <div className="stack-1">
-                  <p className="type-label">Notes</p>
-                  <h2 className="type-h4">Layout and CSS</h2>
+            <article className={styles.supportCard}>
+              <div className="copy-stack">
+                <div className="copy-stack">
+                  <p className="text-label">Notes</p>
+                  <h2 className="text-h4">Layout and CSS</h2>
                 </div>
 
                 <div className={styles.noteList}>
-                  <p className="type-body-sm">
+                  <p className="text-body-sm">
                     The component is <code>position: relative</code> by default to 
                     contain its absolute-positioned annotation children.
                   </p>
-                  <p className="type-body-sm">
+                  <p className="text-body-sm">
                     Annotations are scaled relative to the canvas dimensions. Ensure 
                     the <code>CanvasModel</code> has correct width and height.
                   </p>
-                  <p className="type-body-sm">
+                  <p className="text-body-sm">
                     Use the <code>renderAnnotation</code> prop to customize the 
                     visual appearance of overlays (e.g., custom colors, SVG shapes).
                   </p>

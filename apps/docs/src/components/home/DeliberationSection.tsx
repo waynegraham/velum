@@ -17,7 +17,7 @@ export function DeliberationSection() {
         <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
           <ReadingColumn className={styles.deliberationIntro} width="content">
             <Eyebrow>A slower interaction</Eyebrow>
-            <p className={styles.deliberationText}>
+            <p className={`text-body ${styles.deliberationText}`}>
               Velum is built around the idea that attention can be shaped gently. The
               page does not ask for urgency here; it simply leaves enough room for the
               eye to linger, compare, and return.

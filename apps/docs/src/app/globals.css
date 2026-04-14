@@ -51,6 +51,24 @@
   --animate-fast: var(--duration-fast);
   --animate-base: var(--duration-base);
   --animate-slow: var(--duration-slow);
+  --docs-nav-height: clamp(4.5rem, 6vw, 4.9rem);
+  --docs-nav-height-compact: clamp(4.2rem, 5vw, 4.5rem);
+  --docs-nav-open-height: 14rem;
+  --docs-section-gap: clamp(1.5rem, 3vw, 2.25rem);
+  --docs-section-gap-lg: clamp(2rem, 4vw, 3rem);
+  --docs-page-header-space: clamp(2rem, 4vw, 3rem);
+  --docs-demo-frame-space: clamp(1.25rem, 2.2vw, 1.85rem);
+  --docs-support-grid-gap: clamp(1.5rem, 3vw, 2rem);
+  --docs-support-grid-gap-lg: clamp(1.75rem, 3vw, 2.5rem);
+  --docs-panel-padding: clamp(1.1rem, 2vw, 1.55rem);
+  --docs-code-padding: clamp(1rem, 2vw, 1.4rem);
+  --docs-media-max-height: min(86svh, 68rem);
+  --docs-sequence-width-mid: 54rem;
+  --docs-hero-stage-pad: clamp(1rem, 2.2vw, 1.75rem);
+  --docs-hero-art-pad: clamp(0.75rem, 1.8vw, 1.35rem);
+  --docs-hero-placeholder-min: 70svh;
+  --docs-hero-stage-mobile-min: 82svh;
+  --docs-hero-placeholder-mobile-min: 22rem;
 }
 
 @utility page-container {
@@ -133,9 +151,22 @@
   text-wrap: balance;
 }
 
+@utility text-h4 {
+  font-family: var(--font-display-family), serif;
+  font-size: var(--step-1);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
 @utility text-body {
   font-size: var(--step-0);
   line-height: var(--leading-body);
+}
+
+@utility text-body-sm {
+  font-size: var(--step--1);
+  line-height: 1.68;
 }
 
 @utility text-caption {
@@ -214,13 +245,13 @@
 
 .docs-panel {
   border: 1px solid var(--line-subtle);
-  background: color-mix(in srgb, var(--background) 92%, var(--surface) 8%);
-  padding: clamp(1.25rem, 2.4vw, 1.85rem);
+  background: color-mix(in srgb, var(--background) 96%, var(--surface) 4%);
+  padding: var(--docs-panel-padding);
 }
 
 .code-block {
   overflow-x: auto;
-  padding: var(--space-3);
+  padding: var(--docs-code-padding);
   border: 1px solid var(--line-subtle);
   background: color-mix(in srgb, var(--background) 84%, var(--surface) 16%);
   font-size: var(--step--1);
@@ -284,6 +315,7 @@
     --container-content: 38rem;
     --container-wide: 40rem;
     --chrome-gap: clamp(2.5rem, 8vw, 3.5rem);
+    --docs-nav-open-height: 16rem;
   }
 
   .docs-page {

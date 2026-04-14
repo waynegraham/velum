@@ -3,14 +3,14 @@
 }
 
 .header {
-  padding-bottom: clamp(2rem, 4vw, 3rem);
+  padding-bottom: var(--docs-page-header-space);
   border-top: 1px solid var(--line-subtle);
 }
 
 .headerGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.25rem);
+  gap: var(--docs-section-gap);
   align-items: start;
   justify-items: start;
 }
@@ -54,7 +54,7 @@
 
 .demoSection {
   display: grid;
-  gap: clamp(1.75rem, 3vw, 2.25rem);
+  gap: var(--docs-section-gap);
 }
 
 .demoIntro {
@@ -70,7 +70,7 @@
 }
 
 .demoFrame {
-  padding: clamp(1.25rem, 2.2vw, 1.85rem) 0 0;
+  padding: var(--docs-demo-frame-space) 0 0;
   border-top: 1px solid var(--line-subtle);
 }
 
@@ -104,18 +104,20 @@
 }
 
 .supportSection {
-  padding-top: clamp(2rem, 4vw, 3rem);
+  padding-top: var(--docs-page-header-space);
 }
 
 .supportGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2rem);
+  gap: var(--docs-support-grid-gap);
   align-items: start;
 }
 
 .supportCard {
   height: 100%;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line-subtle);
 }
 
 .codeBlock {
@@ -138,7 +140,7 @@
 @media (min-width: 901px) {
   .supportGrid {
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: clamp(1.75rem, 3vw, 2.5rem);
+    gap: var(--docs-support-grid-gap-lg);
   }
 }
 

@@ -15,12 +15,10 @@ interface DemoBlockProps {
  */
 export function DemoBlock({ children, label, className = "" }: DemoBlockProps) {
   return (
-    <div className={`demo-block relative my-16 flex flex-col gap-4 ${className}`}>
+    <div className={`demo-block editorial-stack relative my-16 ${className}`}>
       {label && (
         <div className="flex items-center gap-4">
-          <span className="text-label opacity-60">
-            {label}
-          </span>
+          <span className="text-label opacity-60">{label}</span>
           <div className="h-px flex-1 bg-line opacity-10" />
         </div>
       )}

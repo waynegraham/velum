@@ -7,3 +7,4 @@ storybook-static
 .storybook-cache
 .env*
 prompts
+.tmp

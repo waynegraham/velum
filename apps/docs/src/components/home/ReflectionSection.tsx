@@ -17,10 +17,10 @@ export function ReflectionSection({ manifestUrl }: ReflectionSectionProps) {
         <MotionBlock reveal={{ distance: 8, duration: 0.74, start: "top 94%" }}>
           <ReadingColumn className={styles.sectionHeader} width="content">
             <Eyebrow>Closing section</Eyebrow>
-            <h2 className={styles.reflectionTitle}>
+            <h2 className={`text-display ${styles.reflectionTitle}`}>
               Documentation can feel like a reading room when the interface yields.
             </h2>
-            <p className={styles.reflectionBody}>
+            <p className={`text-body ${styles.reflectionBody}`}>
               Velum is built for projects where IIIF material should stay central and
               the UI should behave more like framing than control chrome. That applies
               equally to the library and to the way the documentation introduces it.

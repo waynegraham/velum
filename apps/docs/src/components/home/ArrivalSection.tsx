@@ -64,8 +64,8 @@ export function ArrivalSection({
           reveal={{ delay: 0.14, distance: 6, duration: 0.78, start: "top 97%" }}
         >
           <Eyebrow className={styles.heroEyebrow}>Velum</Eyebrow>
-          <h1 className={styles.heroTitle}>Velum</h1>
-          <p className={styles.heroText}>
+          <h1 className={`text-h1 ${styles.heroTitle}`}>Velum</h1>
+          <p className={`text-body ${styles.heroText}`}>
             IIIF components for image-led reading.
           </p>
         </MotionBlock>

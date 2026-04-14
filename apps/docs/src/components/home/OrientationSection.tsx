@@ -10,7 +10,7 @@ export function OrientationSection() {
       <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
         <ReadingColumn className={styles.orientationBlock}>
           <Eyebrow>What Velum is</Eyebrow>
-          <p className={styles.orientationText}>
+          <p className={`text-body ${styles.orientationText}`}>
             Velum is a set of IIIF-focused tools for shaping image-led reading
             experiences across the web. It begins with normalized manifest data, moves
             through restrained React rendering, and adds motion only when the sequence

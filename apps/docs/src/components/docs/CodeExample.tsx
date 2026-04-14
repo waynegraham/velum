@@ -21,12 +21,10 @@ export function CodeExample({
   className = "" 
 }: CodeExampleProps) {
   return (
-    <div className={`code-example relative my-16 flex flex-col gap-4 ${className}`}>
+    <div className={`code-example editorial-stack relative my-16 ${className}`}>
       {title && (
         <div className="flex items-center gap-4">
-          <span className="text-label opacity-60">
-            {title}
-          </span>
+          <span className="text-label opacity-60">{title}</span>
           <div className="h-px flex-1 bg-line opacity-10" />
         </div>
       )}

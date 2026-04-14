@@ -11,7 +11,7 @@
   position: relative;
   width: min(var(--container-page), calc(100% - (var(--page-gutter) * 2)));
   margin-inline: auto;
-  min-height: calc(4.9rem - (var(--nav-scroll) * 0.45rem));
+  min-height: calc(var(--docs-nav-height) - (var(--nav-scroll) * 0.45rem));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -123,7 +123,7 @@
   }
 
   .inner {
-    min-height: calc(4.5rem - (var(--nav-scroll) * 0.15rem));
+    min-height: calc(var(--docs-nav-height-compact) - (var(--nav-scroll) * 0.15rem));
     align-items: stretch;
     flex-direction: column;
     justify-content: center;
@@ -151,7 +151,7 @@
   }
 
   .navOpen {
-    max-height: 14rem;
+    max-height: var(--docs-nav-open-height);
     opacity: 1;
     padding-top: var(--space-2);
   }

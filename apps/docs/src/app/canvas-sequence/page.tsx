@@ -32,15 +32,13 @@ export default function CanvasSequenceDocsPage() {
       <TransitionSection as="header" className={styles.header} space="hero" tone="surface">
         <MotionBlock reveal={{ distance: 16, duration: 0.58, start: "top 90%" }}>
           <div className={styles.headerGrid}>
-            <div className={styles.headerIntro}>
-              <p className="type-label">@velum/react</p>
-              <h1 className={`type-h1 reading-width-tight ${styles.title}`}>
-                CanvasSequence
-              </h1>
+            <div className={`copy-stack ${styles.headerIntro}`}>
+              <p className="text-label">@velum/react</p>
+              <h1 className={`text-h1 reading-column-tight ${styles.title}`}>CanvasSequence</h1>
             </div>
 
-            <div className={styles.headerMeta}>
-              <p className={`type-body reading-width ${styles.description}`}>
+            <div className={`copy-stack ${styles.headerMeta}`}>
+              <p className={`text-body reading-column ${styles.description}`}>
                 A minimal IIIF image sequence for pages where the canvases should
                 stay in front and the interface should stay out of the way.
               </p>
@@ -62,11 +60,11 @@ export default function CanvasSequenceDocsPage() {
       >
         <MotionBlock reveal={{ distance: 18, duration: 0.6, start: "top 88%" }}>
           <div className={styles.demoIntro}>
-            <div className="stack-2">
-              <p className="type-label">Live rendering</p>
-              <h2 className="type-h3 reading-width-tight">See the sequence carry the page.</h2>
+            <div className="copy-stack">
+              <p className="text-label">Live rendering</p>
+              <h2 className="text-h3 reading-column-tight">See the sequence carry the page.</h2>
             </div>
-            <p className={`type-caption reading-width ${styles.demoCaption}`}>
+            <p className={`text-caption reading-column ${styles.demoCaption}`}>
               Public Harvard Art Museums manifest, first five canvases, rendered with
               the narrative demo wrapper.
             </p>
@@ -79,8 +77,8 @@ export default function CanvasSequenceDocsPage() {
         >
           <div className={styles.demoChrome}>
             <div>
-              <p className="type-label">Demo source</p>
-              <p className={`type-caption ${styles.manifestLink}`}>
+              <p className="text-label">Demo source</p>
+              <p className={`text-caption ${styles.manifestLink}`}>
                 <a href={manifestUrl} target="_blank" rel="noreferrer">
                   {manifestUrl}
                 </a>
@@ -89,8 +87,8 @@ export default function CanvasSequenceDocsPage() {
 
             {manifest ? (
               <div className={styles.demoManifest}>
-                <p className="type-label">Manifest</p>
-                <p className="type-caption">{manifest.label}</p>
+                <p className="text-label">Manifest</p>
+                <p className="text-caption">{manifest.label}</p>
               </div>
             ) : null}
           </div>
@@ -119,38 +117,38 @@ export default function CanvasSequenceDocsPage() {
       >
         <MotionBlock reveal={{ distance: 16, duration: 0.54 }}>
           <div className={styles.supportGrid}>
-            <article className={`docs-panel ${styles.supportCard}`}>
-              <div className="stack-3">
-                <div className="stack-1">
-                  <p className="type-label">Code example</p>
-                  <h2 className="type-h4">Basic usage</h2>
+            <article className={styles.supportCard}>
+              <div className="copy-stack">
+                <div className="copy-stack">
+                  <p className="text-label">Code example</p>
+                  <h2 className="text-h4">Basic usage</h2>
                 </div>
                 <CodeSnippet code={exampleCode} className={`code-block ${styles.codeBlock}`} />
               </div>
             </article>
 
-            <article className={`docs-panel ${styles.supportCard}`}>
-              <div className="stack-3">
-                <div className="stack-1">
-                  <p className="type-label">Notes</p>
-                  <h2 className="type-h4">Accessibility and usage</h2>
+            <article className={styles.supportCard}>
+              <div className="copy-stack">
+                <div className="copy-stack">
+                  <p className="text-label">Notes</p>
+                  <h2 className="text-h4">Accessibility and usage</h2>
                 </div>
 
                 <div className={styles.noteList}>
-                  <p className="type-body-sm">
+                  <p className="text-body-sm">
                     Uses semantic <code>figure</code> and <code>figcaption</code>{" "}
                     structure for a clearer reading order.
                   </p>
-                  <p className="type-body-sm">
+                  <p className="text-body-sm">
                     Parse manifests upstream with <code>parseManifest</code> or{" "}
                     <code>useManifest</code>; pass normalized canvases into the
                     component.
                   </p>
-                  <p className="type-body-sm">
+                  <p className="text-body-sm">
                     If the images communicate meaning, ensure canvas labels are
                     descriptive because they inform the default alternative text.
                   </p>
-                  <p className="type-body-sm">
+                  <p className="text-body-sm">
                     Add adapters or templates only when you need pacing, narration,
                     or more opinionated layout behavior.
                   </p>

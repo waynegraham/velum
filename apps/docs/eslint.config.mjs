@@ -21,6 +21,18 @@ const eslintConfig = defineConfig([
             "Arbitrary Tailwind values are not allowed in className. Use shared tokens or a CSS class to prevent UI drift.",
         },
         {
+          selector:
+            "JSXAttribute[name.name='className'] Literal[value=/\\b(type-|stack-|reading-width)/]",
+          message:
+            "Use the docs editorial utilities (`text-*`, `copy-stack`, `reading-column`) instead of legacy utility classes.",
+        },
+        {
+          selector:
+            "JSXAttribute[name.name='className'] JSXExpressionContainer TemplateLiteral TemplateElement[value.raw=/\\b(type-|stack-|reading-width)/]",
+          message:
+            "Use the docs editorial utilities (`text-*`, `copy-stack`, `reading-column`) instead of legacy utility classes.",
+        },
+        {
           selector: "JSXOpeningElement[name.name=/^(AnnotatedCanvas|CanvasSequence|ManifestImage|CanvasImage)$/] JSXAttribute[name.name='className'] Literal[value=/shadow-/]",
           message: "Shadows are not allowed on media components to maintain editorial flat design. Use borders or spacers instead.",
         },

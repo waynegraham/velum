@@ -6,7 +6,7 @@
   display: grid;
   gap: var(--space-3);
   border-top: 1px solid var(--line-subtle);
-  padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+  padding-bottom: var(--docs-page-header-space);
 }
 
 .headerLinks {
@@ -17,12 +17,12 @@
 
 .section {
   display: grid;
-  gap: clamp(1.5rem, 3vw, 2.25rem);
+  gap: var(--docs-section-gap);
 }
 
 .demoSection {
   display: grid;
-  gap: clamp(2rem, 4vw, 3rem);
-  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  gap: var(--docs-section-gap-lg);
+  padding-top: var(--space-section-sm);
   border-top: 1px solid var(--line-subtle);
 }

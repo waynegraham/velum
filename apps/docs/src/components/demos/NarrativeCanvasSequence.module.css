@@ -32,12 +32,12 @@
 }
 
 .group:nth-child(3n) .figure {
-  width: min(100%, 54rem); /* Kept as intermediate width for rhythm */
+  width: min(100%, var(--docs-sequence-width-mid));
 }
 
 .image {
   width: 100%;
-  max-height: min(86svh, 68rem);
+  max-height: var(--docs-media-max-height);
   object-fit: contain;
   margin-inline: auto;
 }

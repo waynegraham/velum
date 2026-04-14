@@ -40,10 +40,10 @@ export function ExplorationSection() {
         <MotionBlock reveal={{ distance: 8, duration: 0.72, start: "top 94%" }}>
           <ReadingColumn className={styles.sectionHeader} width="content">
             <Eyebrow>Components and templates</Eyebrow>
-            <h2 className={styles.sectionTitle}>
+            <h2 className={`text-h2 ${styles.sectionTitle}`}>
               Continue through the library by following the sequence, not a grid of cards.
             </h2>
-            <p className={styles.explorationLead}>
+            <p className={`text-body ${styles.explorationLead}`}>
               Each route below extends the same editorial approach from a different
               package boundary: a primitive component, a more opinionated template, and
               the package structure underneath both.
@@ -65,7 +65,7 @@ export function ExplorationSection() {
             >
               <Eyebrow className={styles.routeLabel}>{route.label}</Eyebrow>
               <div>
-                <h3 className={styles.routeTitle}>
+                <h3 className={`text-h3 ${styles.routeTitle}`}>
                   {route.href.startsWith("/") ? (
                     <Link href={route.href}>{route.title}</Link>
                   ) : (

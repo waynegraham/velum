@@ -1,6 +1,5 @@
 "use client";
 
-import { LenisProvider } from "@velum/adapters";
 import { useManifest } from "@velum/react";
 
 import { PageFrame } from "@/components/layout";
@@ -21,15 +20,13 @@ export function HomePageExperience() {
   const manifestState = useManifest(manifestUrl);
 
   return (
-    <LenisProvider>
-      <PageFrame className={styles.page}>
-        <ArrivalSection {...manifestState} />
-        <OrientationSection />
-        <EncounterSection manifestUrl={manifestUrl} {...manifestState} />
-        <DeliberationSection />
-        <ExplorationSection />
-        <ReflectionSection manifestUrl={manifestUrl} />
-      </PageFrame>
-    </LenisProvider>
+    <PageFrame className={styles.page}>
+      <ArrivalSection {...manifestState} />
+      <OrientationSection />
+      <EncounterSection manifestUrl={manifestUrl} {...manifestState} />
+      <DeliberationSection />
+      <ExplorationSection />
+      <ReflectionSection manifestUrl={manifestUrl} />
+    </PageFrame>
   );
 }

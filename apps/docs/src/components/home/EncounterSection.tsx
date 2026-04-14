@@ -27,10 +27,10 @@ export function EncounterSection({
         <MotionBlock reveal={{ distance: 10, duration: 0.72, start: "top 94%" }}>
           <ReadingColumn className={styles.encounterHeader}>
             <Eyebrow>Encounter</Eyebrow>
-            <h2 className={styles.sectionTitle}>
+            <h2 className={`text-h2 ${styles.sectionTitle}`}>
               A sequence of canvases, held apart long enough to be looked at.
             </h2>
-            <p className={styles.encounterBody}>
+            <p className={`text-body ${styles.encounterBody}`}>
               Drawn from a public IIIF manifest, these canvases are left mostly alone.
               The motion only marks arrival and distance, so each image can keep its own
               weight before the next one enters.

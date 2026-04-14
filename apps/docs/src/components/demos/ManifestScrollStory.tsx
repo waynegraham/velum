@@ -124,13 +124,13 @@ export function ManifestScrollStory({
         })}
         sectionContent={(canvas, index) => (
           <aside className={styles.panel}>
-            <p className={`type-label ${styles.kicker}`}>Canvas {index + 1}</p>
-            <h3 id={`story-canvas-title-${index}`} className={`type-h3 ${styles.title}`}>
+            <p className={`text-label ${styles.kicker}`}>Canvas {index + 1}</p>
+            <h3 id={`story-canvas-title-${index}`} className={`text-h3 ${styles.title}`}>
               {canvas.label ?? `Untitled canvas ${index + 1}`}
             </h3>
             <p
               id={`story-canvas-summary-${index}`}
-              className={`type-body ${styles.summary}`}
+              className={`text-body ${styles.summary}`}
             >
               {getSectionSummary(
                 canvas,
@@ -139,7 +139,7 @@ export function ManifestScrollStory({
                 storyManifest.canvases.length,
               )}
             </p>
-            <p className={`type-body-sm ${styles.note}`}>
+            <p className={`text-body-sm ${styles.note}`}>
               {sectionNarration[index % sectionNarration.length]}
             </p>
             <dl className={styles.meta}>

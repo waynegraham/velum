@@ -38,7 +38,7 @@
 
 .section :global(img) {
   width: 100%;
-  max-height: min(86svh, 68rem);
+  max-height: var(--docs-media-max-height);
   object-fit: contain;
   margin-inline: auto;
 }
