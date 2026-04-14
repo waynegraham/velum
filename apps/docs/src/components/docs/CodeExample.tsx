@@ -21,21 +21,21 @@ export function CodeExample({
   className = "" 
 }: CodeExampleProps) {
   return (
-    <div className={`code-example group relative my-16 flex flex-col gap-4 ${className}`}>
+    <div className={`code-example relative my-16 flex flex-col gap-4 ${className}`}>
       {title && (
         <div className="flex items-center gap-4">
-          <span className="text-label opacity-60 transition-opacity group-hover:opacity-100">
+          <span className="text-label opacity-60">
             {title}
           </span>
           <div className="h-px flex-1 bg-line opacity-10" />
         </div>
       )}
-      
-      <div className="relative overflow-hidden rounded-[0.15rem] border border-line bg-surface/10 p-2 transition-colors duration-base ease-fluid group-hover:bg-surface/20">
+
+      <div className="relative overflow-hidden code-panel">
         <CodeSnippet 
           code={code} 
           language={language} 
-          className="!border-none !bg-transparent !p-10 text-[0.88rem] leading-relaxed"
+          className="border-0 !bg-transparent px-0 py-8"
         />
       </div>
     </div>

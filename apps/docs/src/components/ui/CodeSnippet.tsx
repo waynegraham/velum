@@ -47,7 +47,7 @@ export function CodeSnippet({
       <button
         type="button"
         onClick={handleCopy}
-        className="absolute top-2 right-2 flex items-center gap-1.5 rounded-[0.2rem] border border-line bg-surface px-2 py-1 text-caption opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100"
+        className="copy-button"
         aria-label="Copy code snippet"
       >
         {copied ? (
@@ -66,7 +66,7 @@ export function CodeSnippet({
             >
               <polyline points="20 6 9 17 4 12" />
             </svg>
-            <span className="text-xs font-medium text-accent-strong">Copied!</span>
+            <span className="copy-buttonAccent">Copied!</span>
           </>
         ) : (
           <>
@@ -85,7 +85,7 @@ export function CodeSnippet({
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
             </svg>
-            <span className="text-xs font-medium text-muted">Copy</span>
+            <span>Copy</span>
           </>
         )}
       </button>

@@ -1,5 +1,5 @@
 .markerContainer {
-  padding-block: var(--space-2) 0;
+  padding-block: var(--space-1) 0;
 }
 
 .marker {
@@ -17,7 +17,7 @@
 .transitionSection {
   position: relative;
   isolation: isolate;
-  padding-block: var(--space-section-lg) var(--space-section-md);
+  padding-block: var(--space-section-md) var(--space-section-sm);
 }
 
 .transitionSection::before {
@@ -25,8 +25,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: var(--space-section-sm);
-  height: clamp(12rem, 20vw, 18rem);
+  top: var(--space-4);
+  height: clamp(8rem, 14vw, 12rem);
   border-radius: var(--container-reading);
   background:
     radial-gradient(
@@ -35,26 +35,25 @@
       transparent 72%
     ),
     linear-gradient(180deg, var(--neutral-black-2), transparent);
-  opacity: 0.44;
+  opacity: 0.18;
   pointer-events: none;
   z-index: -1;
-  filter: blur(1px);
 }
 
 .transitionSection::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: calc(var(--space-2) * -1);
+  bottom: calc(var(--space-1) * -1);
   width: min(78vw, var(--container-wide));
-  height: var(--space-4);
+  height: var(--space-3);
   transform: translateX(-50%);
   background: radial-gradient(
     50% 100% at 50% 0%,
     var(--neutral-black-5),
     transparent 72%
   );
-  opacity: 0.3;
+  opacity: 0.12;
   pointer-events: none;
   z-index: -1;
 }
@@ -99,7 +98,7 @@
 
 @media (max-width: 640px) {
   .transitionSection {
-    padding-block: var(--space-section-md) var(--space-section-sm);
+    padding-block: var(--space-section-sm) var(--space-4);
   }
 
   .transitionSection::after {

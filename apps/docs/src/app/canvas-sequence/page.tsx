@@ -32,14 +32,14 @@ export default function CanvasSequenceDocsPage() {
       <TransitionSection as="header" className={styles.header} space="hero" tone="surface">
         <MotionBlock reveal={{ distance: 16, duration: 0.58, start: "top 90%" }}>
           <div className={styles.headerGrid}>
-            <div className="stack-3">
+            <div className={styles.headerIntro}>
               <p className="type-label">@velum/react</p>
               <h1 className={`type-h1 reading-width-tight ${styles.title}`}>
                 CanvasSequence
               </h1>
             </div>
 
-            <div className="stack-3">
+            <div className={styles.headerMeta}>
               <p className={`type-body reading-width ${styles.description}`}>
                 A minimal IIIF image sequence for pages where the canvases should
                 stay in front and the interface should stay out of the way.
