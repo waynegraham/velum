@@ -10,6 +10,8 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "storybook": "pnpm --filter @velum/storybook dev",
+    "build-storybook": "pnpm --filter @velum/storybook build",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish"

@@ -1,0 +1,19 @@
+:root {
+  --font-display-family: "Cormorant Garamond", Georgia, serif;
+  --font-sans-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
+
+html,
+body,
+#storybook-root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#storybook-root {
+  padding: var(--space-4);
+}

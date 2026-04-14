@@ -65,7 +65,6 @@ Optional adapters:
 pnpm add @velum/adapters gsap @gsap/react lenis
 ```
 
-
 ---
 
 ## Basic Usage
@@ -78,12 +77,66 @@ import { useManifest } from "@velum/react";
 const { manifest, isLoading } = useManifest(manifestUrl);
 ```
 
-### Render canvases
+### Render a single canvas image
+
+```tsx
+import { CanvasImage } from "@velum/react";
+
+<CanvasImage canvas={manifest.canvases[0]} />
+```
+
+### Render canvases as a sequence
 
 ```tsx
 import { CanvasSequence } from "@velum/react";
 
 <CanvasSequence canvases={manifest.canvases} />
+```
+
+### Render an annotated canvas
+
+```tsx
+import { AnnotatedCanvas } from "@velum/react";
+
+<AnnotatedCanvas canvas={manifest.canvases[0]} />
+```
+
+### Render manifest metadata
+
+```tsx
+import { ManifestHeader } from "@velum/react";
+
+<ManifestHeader manifest={manifest} />
+```
+
+### Select a specific canvas
+
+```tsx
+import { useCanvas } from "@velum/react";
+
+const canvas = useCanvas(manifest, canvasId);
+```
+
+### Navigate manifest ranges
+
+```tsx
+import { RangeNavigator } from "@velum/react";
+
+<RangeNavigator
+  ranges={manifest.ranges}
+  selectedRangeId={selectedRangeId}
+  onSelect={(range) => setSelectedRangeId(range.id)}
+/>
+```
+
+### Compose media and editorial content
+
+```tsx
+import { CanvasSection } from "@velum/react";
+
+<CanvasSection canvas={manifest.canvases[0]} layout="split">
+  <p>Contextual interpretation for this canvas.</p>
+</CanvasSection>
 ```
 
 ---
@@ -105,7 +158,7 @@ import { LenisProvider } from "@velum/adapters";
 Velum follows a layered approach:
 
 ```text
-IIIF Data → Core Models → React Primitives → Adapters → Templates
+IIIF Data -> Core Models -> React Primitives -> Adapters -> Templates
 ```
 
 Key principles:
@@ -119,7 +172,7 @@ Key principles:
 
 ## Development
 
-### Install 
+### Install
 
 ```bash
 pnpm install
@@ -131,10 +184,24 @@ pnpm install
 pnpm dev
 ```
 
+### Run Storybook
+
+```bash
+pnpm storybook
+```
+
+Storybook provides isolated visual inspection for `@velum/react` components using real IIIF fixtures and the shared `@velum/styles` design system styles.
+
 ### Build packages
 
 ```bash
 pnpm build
+```
+
+### Build Storybook
+
+```bash
+pnpm build-storybook
 ```
 
 ---
@@ -145,6 +212,7 @@ pnpm build
 velum/
   apps/
     docs/
+    storybook/
   packages/
     core/
     react/
